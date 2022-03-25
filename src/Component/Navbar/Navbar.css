@@ -1,0 +1,32 @@
+.Header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-bottom: 2px solid var(--light-teal);
+}
+.heading-in-note-page {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  padding: 7px;
+  margin: 3px;
+}
+
+.name-of-app {
+  color: var(--primary-color);
+}
+.menu-icon {
+  font-size: 2rem;
+  display: none;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .Header-container {
+    width: 100%;
+    padding: 4px;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
