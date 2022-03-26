@@ -1,0 +1,34 @@
+.colors-selector-container {
+  height: 16rem;
+  width: 27.8rem;
+  background-color: white;
+  flex-wrap: wrap;
+  box-shadow: 3px 3px 4px var(--light-stone);
+  position: fixed;
+  left: 65rem;
+  top: 40rem;
+  align-items: flex-start;
+  padding: 5px;
+}
+.list-item-of-color {
+  height: 4rem;
+}
+
+.color-selector {
+  margin: 2px 0 1px 6px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--light-stone);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .colors-selector-container {
+    left: 11.4rem;
+    height: 7.6rem;
+    width: 14rem;
+  }
+  .color-selector {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
