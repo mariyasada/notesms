@@ -7,7 +7,7 @@ export const Hamburger = () => {
   return (
     <div>
       <ul className="hamburger-menu-container">
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/notepage" className="hamburger-menu-item">
           Home
         </Link>
         <Link to="/" className="hamburger-menu-item">

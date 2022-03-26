@@ -14,7 +14,7 @@ export const Sidebar = () => {
           <CgProfile className="sidebar-icon" />
           <h2 className="sidebar-item-title">Profile</h2>
         </li>
-        <Link to="/">
+        <Link to="/notepage">
           <li className="sidebar-item-with-icon flex-center">
             <FaHome className="sidebar-icon" />
             <h2 className="sidebar-item-title">Home</h2>
