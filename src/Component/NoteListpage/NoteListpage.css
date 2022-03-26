@@ -1,7 +1,6 @@
 .search-input-center {
   width: 30%;
   height: 4rem;
-  /* background-color: red; */
   margin: 3rem 0 0 20rem;
   border: 2px solid var(--light-stone);
 }
@@ -20,7 +19,6 @@
   width: 100%;
   height: 100vh;
   margin: 8rem 0 0 20rem;
-  /* background-color: aqua; */
   position: fixed;
   top: 2.6rem;
 }
@@ -31,8 +29,6 @@
   box-shadow: 2px 3px 4px var(--light-stone);
   margin: 4rem 0 0 20rem;
   cursor: pointer;
-  /* background-color: white; */
-  /* background-color: aqua; */
 }
 .input-with-pin-icon-container {
   width: 100%;
@@ -41,8 +37,6 @@
 }
 .title-of-note {
   width: 100%;
-  border: none;
-  outline: none;
   padding: 6px;
   font-size: 1.5rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -52,8 +46,6 @@
 }
 .details-of-note {
   width: 100%;
-  border: none;
-  outline: none;
   height: 10rem;
   font-size: 1.5rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

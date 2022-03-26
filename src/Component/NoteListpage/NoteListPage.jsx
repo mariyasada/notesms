@@ -19,14 +19,14 @@ export const NoteListPage = () => {
           <input
             type="text"
             placeholder="Enter Title"
-            className="title-of-note"
+            className="title-of-note border-outline-none"
           />
           <BsPinFill className="note-icon" />
         </div>
         <textarea
           type="text"
           placeholder="Enter Text Here"
-          className="details-of-note"
+          className="details-of-note border-outline-none"
         />
         <div className="close-icon-color-palatte-container flex-center">
           <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />

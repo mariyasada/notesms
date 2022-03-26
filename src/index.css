@@ -37,6 +37,10 @@ li {
   font-weight: bold;
   cursor: pointer;
 }
+.border-outline-none {
+  border: none;
+  outline: none;
+}
 
 :root {
   --primary-color: #3d6d79;
