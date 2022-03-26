@@ -1,0 +1,36 @@
+.Archivenote-page-container {
+  height: 100vh;
+  width: 100%;
+  gap: 1rem;
+}
+.archive-heading-note-container {
+  width: 100%;
+  height: auto;
+  gap: 2rem;
+  margin-top: -7rem;
+  margin-left: 19rem;
+}
+.heading-archive {
+  width: 100%;
+  color: var(--primary-color);
+}
+.archivenotes-container {
+  gap: 2rem;
+  /* margin-left: -30rem; */
+  justify-content: flex-start;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .archivenotes-container {
+    flex-direction: column;
+    height: 80vh;
+  }
+  .archive-heading-note-container {
+    /* margin: 17rem 0 0 2rem; */
+    margin: 17rem 0 0 -4rem;
+  }
+  /* .sidebar-item-container {
+    height: 9vh;
+    background-color: aqua;
+    margin-left: 2rem;
+  } */
+}

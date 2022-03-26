@@ -4,3 +4,5 @@ export {Sidebar} from "../Component/Sidebar/Sidebar";
 export {Hamburger} from "../Component/Hamburger/Hamburger";
 export {NoteListPage} from "../Component/NoteListpage/NoteListPage";
 export { ColorPalette } from "../Component/colorPalette/ColorPalette";
+export {NoteCard} from "../Component/NoteCard/NoteCard";
+export {ArchiveCard} from '../Component/archiveDeleteCard/ArchiveCard';

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Hamburger/Hamburger.css";
+import "../Sidebar/Sidebar.css";
 
 export const Hamburger = () => {
   return (
@@ -12,10 +13,10 @@ export const Hamburger = () => {
         <Link to="/" className="hamburger-menu-item">
           Profile
         </Link>
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/archivepage" className="hamburger-menu-item">
           Archive
         </Link>
-        <Link to="/" className="hamburger-menu-item">
+        <Link to="/deletednotepage" className="hamburger-menu-item">
           Trash
         </Link>
       </ul>

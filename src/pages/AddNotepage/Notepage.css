@@ -1,12 +1,43 @@
 .sidebar-and-notes-container {
-  /* margin-left: ; */
   width: 100vw;
-  height: 100vh;
+  height: 56rem;
 }
+.notelist-container {
+  width: 100%;
+  gap: 10px;
+  margin-left: 2.5rem;
+  flex-wrap: wrap;
+  height: auto;
+}
+.title-notelist-container,
+.title-pinned-notelist-container {
+  width: 80%;
+  height: auto;
+  gap: 12px;
+  margin: -15rem 0 0 20rem;
+  justify-content: flex-start;
+}
+.title-pinned-notelist-container {
+  margin: 3rem 0 0 20rem;
+}
+.heading-others,
+.heading-Pinned {
+  width: 100%;
+  margin: 2rem 0 0 2rem;
+  color: var(--primary-color);
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-and-notes-container {
     flex-direction: column;
     flex-wrap: wrap;
     overflow-y: scroll;
+  }
+  .notelist-container {
+    margin: 2rem 0 0 -19rem;
+  }
+  .heading-others,
+  .heading-Pinned {
+    margin-left: -2rem;
   }
 }

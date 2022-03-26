@@ -5,8 +5,8 @@
   flex-wrap: wrap;
   box-shadow: 3px 3px 4px var(--light-stone);
   position: fixed;
-  left: 65rem;
-  top: 40rem;
+  left: 63rem;
+  top: 38rem;
   align-items: flex-start;
   padding: 5px;
 }
@@ -23,9 +23,12 @@
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .colors-selector-container {
-    left: 11.4rem;
+    top: 39rem;
+    left: 14rem;
+    z-index: 120;
     height: 7.6rem;
     width: 14rem;
+    padding: 4px;
   }
   .color-selector {
     height: 1.6rem;
