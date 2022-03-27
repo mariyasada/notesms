@@ -13,6 +13,9 @@ export const Hamburger = () => {
         <Link to="/" className="hamburger-menu-item">
           Profile
         </Link>
+        <Link to="/notepage" className="hamburger-menu-item">
+          Notes
+        </Link>
         <Link to="/archivepage" className="hamburger-menu-item">
           Archive
         </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHome, FaBookmark } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { BiArchiveIn, BiTrash } from "react-icons/bi";
+import { BiArchiveIn, BiTrash, BiNote } from "react-icons/bi";
 import { BsPlusCircle } from "react-icons/bs";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
@@ -14,10 +14,16 @@ export const Sidebar = () => {
           <CgProfile className="sidebar-icon" />
           <h2 className="sidebar-item-title">Profile</h2>
         </li>
-        <Link to="/notepage">
+        <Link to="/">
           <li className="sidebar-item-with-icon flex-center">
             <FaHome className="sidebar-icon" />
             <h2 className="sidebar-item-title">Home</h2>
+          </li>
+        </Link>
+        <Link to="/notepage">
+          <li className="sidebar-item-with-icon flex-center">
+            <BiNote className="sidebar-icon" />
+            <h2 className="sidebar-item-title">Notes</h2>
           </li>
         </Link>
         <Link to="/archivepage">

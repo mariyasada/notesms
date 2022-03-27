@@ -16,7 +16,6 @@
 }
 .Deletenotes-container {
   gap: 2rem;
-  /* margin-left: -30rem; */
   justify-content: flex-start;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -25,6 +24,6 @@
     height: 80vh;
   }
   .Delete-heading-note-container {
-    margin: 17rem 0 0 -4rem;
+    margin: 17rem 0 0 -1rem;
   }
 }
