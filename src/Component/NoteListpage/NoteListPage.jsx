@@ -1,5 +1,5 @@
 import React from "react";
-import { BsSearch, BsPinFill } from "react-icons/bs";
+import { BsSearch, BsPinFill, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
 import { useState } from "react";
 import { ColorPalette } from "../../Component/index";
@@ -30,6 +30,7 @@ export const NoteListPage = () => {
         />
         <div className="close-icon-color-palatte-container flex-center">
           <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />
+          <BsPlusSquare />
           <IoCloseCircle />
         </div>
       </div>

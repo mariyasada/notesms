@@ -1,0 +1,29 @@
+.Deletenote-page-container {
+  height: 100vh;
+  width: 100%;
+  gap: 1rem;
+}
+.Delete-heading-note-container {
+  width: 100%;
+  height: auto;
+  gap: 2rem;
+  margin-top: -7rem;
+  margin-left: 19rem;
+}
+.heading-delete {
+  width: 100%;
+  color: var(--primary-color);
+}
+.Deletenotes-container {
+  gap: 2rem;
+  justify-content: flex-start;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .Deletenotes-container {
+    flex-direction: column;
+    height: 80vh;
+  }
+  .Delete-heading-note-container {
+    margin: 17rem 0 0 -1rem;
+  }
+}

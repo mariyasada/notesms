@@ -42,7 +42,7 @@
 
   .heading-of-notes {
     font-size: 3rem;
-    margin-left: -9rem;
+    margin-left: -3rem;
     align-self: center;
   }
   .image-quote-container {
@@ -51,14 +51,14 @@
   .image-of-homepage {
     object-fit: contain;
     width: 70%;
-    margin: -12rem 0 0 -10rem;
+    margin: -12rem 0 0 -3rem;
   }
   .quote-of-app {
-    font-size: 2.5rem;
-    width: 50%;
-    margin: -15rem 0 0 -8rem;
+    font-size: 3.5rem;
+    width: 60%;
+    margin: -15rem 0 0 -3rem;
   }
   .btn-container {
-    margin-left: 1rem;
+    margin-left: 4rem;
   }
 }
