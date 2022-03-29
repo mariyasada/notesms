@@ -39,7 +39,6 @@
   border: 2px solid var(--primary-color);
   padding: 5px;
   margin-left: 11px;
-  color: white;
 }
 .sidebar-icon-plus {
   font-size: 2rem;
@@ -47,14 +46,14 @@
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-item-container {
-    width: 100%;
+    width: 80%;
     height: 18vh;
-    margin: 85rem 0 0 2rem;
+    margin: 85rem 0 0 -7rem;
     flex-direction: row;
     background-color: aqua;
   }
   .sidebar-item-with-icon {
-    width: 7rem;
+    width: 5rem;
     display: flex;
     flex-direction: column;
     gap: 1px;

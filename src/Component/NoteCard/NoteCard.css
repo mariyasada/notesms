@@ -1,32 +1,52 @@
 .notecard-container {
-  width: 23rem;
+  width: 25rem;
   height: auto;
   box-shadow: 2px 3px 4px var(--light-stone);
   gap: 10px;
-  /* margin: 40rem 0 0 40rem; */
-  /* background-color: blue; */
 }
 .title-of-notes-container {
   width: 100%;
-  margin: 2rem 0 0 2rem;
+  margin: 2rem 0 0 -1rem;
   font-size: 1.8rem;
-  gap: 2.7rem;
+  gap: 7.7rem;
+  justify-content: space-evenly;
   font-weight: bold;
 }
 
-.description-of-notes-container {
+.tag-of-card {
+  font-size: 1.3rem;
+  align-self: flex-start;
+  margin-left: 2rem;
+  background-color: rgb(241, 241, 135);
+  padding: 4px;
+}
+
+.description-of-notes-container,
+.tag-of-notes-container {
+  width: 100%;
   font-size: 1.4rem;
-  margin: 1rem 1rem 0 1rem;
-  text-align: justify;
+  margin: 1rem;
+}
+.description-of-notes {
+  align-self: flex-start;
+  margin-left: 2rem;
 }
 .icons-of-notes-container {
-  width: 100%;
   justify-content: flex-end;
   font-size: 2rem;
   gap: 1rem;
   margin: 0 2rem 1rem 0;
 }
 .notes-icon-notecard {
+  color: var(--dark-stone);
+}
+.time-date-and-icon-container {
+  width: 100%;
+  justify-content: space-between;
+}
+.time-and-date-div {
+  font-size: small;
+  margin: 0 2rem 1rem 0.6rem;
   color: var(--dark-stone);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {

@@ -5,8 +5,18 @@ import { BiArchiveIn, BiTrash, BiNote } from "react-icons/bi";
 import { BsPlusCircle } from "react-icons/bs";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export const Sidebar = () => {
+  const [tagList, setTagList] = useState([]);
+  const [inputTag, setInputTag] = useState("");
+
+  const addTagtoSidebar = () => {
+    console.log(inputTag, "inputvalue");
+    setTagList((prevdata) => [...prevdata, inputTag]);
+    setInputTag("");
+    console.log(tagList);
+  };
   return (
     <div className="sidebar-item-container flex-center">
       <ul className="sidebar-items">
@@ -38,9 +48,24 @@ export const Sidebar = () => {
             <h2 className="sidebar-item-title">Trash</h2>
           </li>
         </Link>
+        {tagList.map((tag) => {
+          return (
+            <li className="sidebar-item-with-icon flex-center">
+              <h2 className="sidebar-item-title"> {tag}</h2>
+            </li>
+          );
+        })}
         <li className="input-with-icon flex-center">
-          <input className="input-tag" placeholder="Enter Tag here" />
-          <BsPlusCircle className="sidebar-icon-plus" />
+          <input
+            className="input-tag"
+            placeholder="Enter Tag here"
+            value={inputTag}
+            onChange={(e) => setInputTag(e.target.value)}
+          />
+          <BsPlusCircle
+            className="sidebar-icon-plus"
+            onClick={addTagtoSidebar}
+          />
         </li>
       </ul>
     </div>
