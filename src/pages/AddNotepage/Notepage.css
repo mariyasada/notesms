@@ -34,10 +34,10 @@
     overflow-y: scroll;
   }
   .notelist-container {
-    margin: 2rem 0 0 -15rem;
+    margin: 2rem 0 0 -21rem;
   }
   .heading-others,
   .heading-Pinned {
-    margin-left: 0rem;
+    margin-left: -7rem;
   }
 }

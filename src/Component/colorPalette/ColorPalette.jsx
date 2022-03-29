@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "./colorPalette.css";
 
 const colors = [
@@ -12,9 +13,16 @@ const colors = [
   "#fb7185",
   "#60a5fa",
   "#34d399",
+  "#0891b2",
+  "#f472b6",
+  "#22c55e",
+  "#93c5fd",
 ];
 
-export const ColorPalette = () => {
+export const ColorPalette = ({ listColor, setListColor }) => {
+  const addColor = (color) => {
+    setListColor(color);
+  };
   return (
     <div className="colors-selector-container flex-center border-round ">
       {colors.map((coloritem, index) => {
@@ -24,6 +32,7 @@ export const ColorPalette = () => {
               className="color-selector"
               key={coloritem.id}
               style={{ backgroundColor: coloritem }}
+              onClick={() => addColor(coloritem)}
             ></li>
           </ul>
         );

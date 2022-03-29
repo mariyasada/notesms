@@ -55,6 +55,13 @@
   font-size: 2.4rem;
   color: var(--primary-color-dark);
 }
+.label-with-icons-container {
+  width: 100%;
+  justify-content: space-between;
+}
+.tag {
+  height: 30px;
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .notes-with-searchbar-container {
     height: 50%;
@@ -62,11 +69,11 @@
   }
   .search-input-center {
     width: 70%;
-    margin: 5rem 0 0 4rem;
+    margin: 5rem 0 0 1rem;
   }
   .add-notes-container {
     width: 70%;
     height: 20rem;
-    margin-left: 4rem;
+    margin-left: 1rem;
   }
 }
