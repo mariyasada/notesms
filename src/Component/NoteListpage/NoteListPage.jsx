@@ -28,12 +28,6 @@ export const NoteListPage = ({
     setEditItemId,
     EditItemId,
   } = useNotes();
-  // const [isEditing, setEditing] = useState(false);
-  // const [isOpen, setisOpen] = useState(false);
-  // const [forminput, setFormInput] = useState("");
-  // const [formtextArea, setFormTextArea] = useState("");
-  // const [listColor, setListColor] = useState("LightGray");
-  // const [tagState, setTagState] = useState("class");
 
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {

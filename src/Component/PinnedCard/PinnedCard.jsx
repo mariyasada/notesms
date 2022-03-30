@@ -11,10 +11,7 @@ export const PinnedCard = ({ Note }) => {
     >
       <div className="title-of-notes-container flex-center">
         <p className="title-card">{Note.title}</p>
-        <BsPinFill
-          className="notes-icon-notecard"
-          onClick={() => removePinnedNotes(Note)}
-        />
+        <BsPinFill className="notes-icon-notecard" />
       </div>
       <div className="description-of-notes-container flex-center">
         <p className="description-of-notes">{Note.content}</p>
@@ -24,11 +21,6 @@ export const PinnedCard = ({ Note }) => {
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
-        <div className="icons-of-notes-container flex-center">
-          <BiEdit title="edit" className="notes-icon-notecard" />
-          <BiArchiveIn title="archive" className="notes-icon-notecard" />
-          <BiTrash title="Delete" className="notes-icon-notecard" />
-        </div>
       </div>
     </div>
   );

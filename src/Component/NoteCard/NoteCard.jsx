@@ -25,7 +25,6 @@ export const NoteCard = ({
     useArchiveNote();
 
   const addPinnedNote = (note) => {
-    console.log(note, "from pinnednotes");
     setIsPinned(!isPinned);
     setPinnedNotes((prevdata) => [...prevdata, note]);
   };
@@ -40,7 +39,6 @@ export const NoteCard = ({
 
   const EditNoteHandler = (note) => {
     console.log("clicked", note);
-
     setFormInput(note.title);
     setFormTextArea(note.content);
     setListColor(note.color);

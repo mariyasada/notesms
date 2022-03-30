@@ -16,7 +16,7 @@ import { createContext,useContext ,useState,useEffect  } from "react";
 
                 const {data} = await axios.get("https://my-json-server.typicode.com/mariyasada/jsonAPI/notes");
                  setallNotes(data);
-                // console.log(data,"mariyasdata");
+                
          })();
      },[])
 
