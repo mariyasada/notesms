@@ -1,29 +1,20 @@
 import React from "react";
 import "../NoteCard/NoteCard.css";
-import { BiArchiveOut, BiTrash } from "react-icons/bi";
+import { FaTrashRestoreAlt } from "react-icons/fa";
+import { BiTrash } from "react-icons/bi";
 import { useArchiveNote } from "../../Context/archive-note-context";
 import { useNotes } from "../../Context/note-context";
 
-export const ArchiveCard = ({ Note }) => {
+export const DeleteCard = ({ Note }) => {
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
     useArchiveNote();
   const { allNotes, setallNotes } = useNotes();
 
-  const RemoveFromArchiveAddtoNote = (Note) => {
-    archiveDispatch({
-      type: "ARCHIVE_OUT_AND_ADD_NOTES",
-      payload: Note,
-    });
-    setallNotes((prevData) => [...prevData, Note]);
+  const RestoreNotesFromTrash = (Note) => {
+    trashListDispatch({ type: "REMOVE_FROM_TRASH", payload: Note });
+    setallNotes((prevdata) => [...prevdata, Note]);
   };
 
-  const addToTrash = (Note) => {
-    archiveDispatch({
-      type: "ARCHIVE_OUT_AND_ADD_NOTES",
-      payload: Note,
-    });
-    trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
-  };
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -41,15 +32,17 @@ export const ArchiveCard = ({ Note }) => {
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
         <div className="icons-of-notes-container flex-center">
-          <BiArchiveOut
-            title="Unarchive"
+          <FaTrashRestoreAlt
+            title="restore"
             className="notes-icon-notecard"
-            onClick={() => RemoveFromArchiveAddtoNote(Note)}
+            onClick={() => RestoreNotesFromTrash(Note)}
           />
           <BiTrash
             title="Delete"
             className="notes-icon-notecard"
-            onClick={() => addToTrash(Note)}
+            onClick={() =>
+              trashListDispatch({ type: "REMOVE_FROM_TRASH", payload: Note })
+            }
           />
         </div>
       </div>

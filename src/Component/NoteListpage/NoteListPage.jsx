@@ -1,7 +1,6 @@
-import React from "react";
-import { BsSearch, BsPinFill, BsPlusSquare } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsSearch, BsCheckCircle, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
-import { useState } from "react";
 import { ColorPalette } from "../../Component/index";
 import "./NoteListpage.css";
 import "../colorPalette/colorPalette.css";
@@ -9,15 +8,26 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNotes } from "../../Context/note-context";
 
-export const NoteListPage = () => {
-  const { allNotes, setallNotes } = useNotes();
-  const [isOpen, setisOpen] = useState(false);
-  const [forminput, setFormInput] = useState("");
-  const [formtextArea, setFormTextArea] = useState("");
-  const [listColor, setListColor] = useState("LightGray");
-  const [tagState, setTagState] = useState("class");
-
-  console.log(forminput, formtextArea, tagState);
+export const NoteListPage = ({
+  isOpen,
+  setisOpen,
+  forminput,
+  setFormInput,
+  formtextArea,
+  setFormTextArea,
+  listColor,
+  setListColor,
+  tagState,
+  setTagState,
+}) => {
+  const {
+    allNotes,
+    setallNotes,
+    isEditing,
+    setEditing,
+    setEditItemId,
+    EditItemId,
+  } = useNotes();
 
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {
@@ -35,7 +45,7 @@ export const NoteListPage = () => {
             tag: tagState,
           }
         );
-        console.log(data);
+
         setallNotes((prevdata) => [...prevdata, data]);
         setFormInput("");
         setFormTextArea("");
@@ -48,6 +58,34 @@ export const NoteListPage = () => {
   const cancleNoteInput = () => {
     setFormInput("");
     setFormTextArea("");
+  };
+
+  const updateNote = async () => {
+    console.log(EditItemId);
+    if (forminput === "" || formtextArea == "") {
+      alert("please fill the data in inputs");
+    } else {
+      try {
+        const { data } = await axios.put(
+          `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${EditItemId}`,
+          {
+            id: uuidv4(),
+            title: forminput,
+            content: formtextArea,
+            color: listColor,
+            date: new Date().toLocaleDateString(),
+            tag: tagState,
+          }
+        );
+        console.log(data, "updated data");
+        setFormInput("");
+        setFormTextArea("");
+        setisOpen(false);
+        setEditing(!isEditing);
+      } catch (err) {
+        console.error("something went wrong", err);
+      }
+    }
   };
   return (
     <div className="notes-with-searchbar-container">
@@ -66,7 +104,7 @@ export const NoteListPage = () => {
             onChange={(e) => setFormInput(e.target.value)}
             required
           />
-          <BsPinFill className="note-icon" />
+          {/* <BsPin className="note-icon" /> */}
         </div>
         <textarea
           type="text"
@@ -87,11 +125,18 @@ export const NoteListPage = () => {
               <option value="Work">Work</option>
               <option value="Home">Home</option>
               <option value="Class">Class</option>
+              <option value="Exercise">Exercise</option>
+              <option value="Teams">Teams</option>
             </select>
           </div>
           <div className="close-icon-color-palatte-container flex-center">
             <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />
-            <BsPlusSquare onClick={addNote} />
+            {isEditing ? (
+              <BsCheckCircle onClick={updateNote} />
+            ) : (
+              <BsPlusSquare onClick={addNote} />
+            )}
+
             <IoCloseCircle onClick={cancleNoteInput} />
           </div>
         </div>
