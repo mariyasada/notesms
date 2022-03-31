@@ -51,12 +51,14 @@ export const NoteCard = ({
     archiveDispatch({ type: "ADD_TO_ARCHIVE", payload: Note });
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
+    alert("archived note");
   };
 
   const removefromNotesAddToTrash = (Note) => {
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
     const newItemofNotes = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItemofNotes);
+    alert("Note deleted, go to Trash");
   };
 
   return (
@@ -80,9 +82,15 @@ export const NoteCard = ({
       </div>
       <div className="tag-of-notes-container flex-center">
         <div className="tag-of-card">{Note.tag}</div>
+        {Note.priority === undefined ? (
+          ""
+        ) : (
+          <div className="priority-of-card">{Note.priority}</div>
+        )}
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
+
         <div className="icons-of-notes-container flex-center">
           <BiEdit
             title="edit"

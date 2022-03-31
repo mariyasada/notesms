@@ -1,5 +1,5 @@
 import "./App.css";
-import {ArchivePage, DeletedNotePage, HomePage, NotePage} from "./pages/indexpage"
+import {ArchivePage, DeletedNotePage, HomePage, NotePage, PageNotFound} from "./pages/indexpage"
 import {Routes,Route} from "react-router";
 
 
@@ -12,6 +12,7 @@ function App() {
               <Route path="/notepage" element={<NotePage/>}/>
               <Route path="/archivepage" element={<ArchivePage/>}/>
               <Route path="/deletednotepage" element={<DeletedNotePage/>}/>
+              <Route path="*" element={<PageNotFound/>}/>
      </Routes>       
     </div>
   );

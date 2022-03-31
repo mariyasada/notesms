@@ -19,6 +19,8 @@ export const NoteListPage = ({
   setListColor,
   tagState,
   setTagState,
+  priorityState,
+  setPriorityState,
 }) => {
   const {
     allNotes,
@@ -27,6 +29,8 @@ export const NoteListPage = ({
     setEditing,
     setEditItemId,
     EditItemId,
+    state,
+    dispatch,
   } = useNotes();
 
   const addNote = async () => {
@@ -43,6 +47,7 @@ export const NoteListPage = ({
             color: listColor,
             date: new Date().toLocaleDateString(),
             tag: tagState,
+            priority: priorityState,
           }
         );
 
@@ -50,6 +55,7 @@ export const NoteListPage = ({
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
+        alert("Note successfully added");
       } catch (err) {
         console.error("something went wrong", err);
       }
@@ -75,6 +81,7 @@ export const NoteListPage = ({
             color: listColor,
             date: new Date().toLocaleDateString(),
             tag: tagState,
+            priority: priorityState,
           }
         );
         console.log(data, "updated data");
@@ -91,24 +98,30 @@ export const NoteListPage = ({
     <div className="notes-with-searchbar-container">
       <div className="search-input-center flex-center border-round">
         <BsSearch className="search-icon" />
-        <input type="text" className="input-searchbox" placeholder="Search" />
+        <input
+          type="text"
+          className="input-searchbox"
+          placeholder="Search"
+          onChange={(e) =>
+            dispatch({ type: "SEARCH_BY_QUERY", payload: e.target.value })
+          }
+        />
       </div>
       <form className="add-notes-container border-round flex-center flex-direction-column">
         <div className="input-with-pin-icon-container flex-center">
           <input
             type="text"
-            placeholder="Enter Title"
+            placeholder="Title"
             className="title-of-note border-outline-none"
             name="title"
             value={forminput}
             onChange={(e) => setFormInput(e.target.value)}
             required
           />
-          {/* <BsPin className="note-icon" /> */}
         </div>
         <textarea
           type="text"
-          placeholder="Enter Text Here"
+          placeholder="Text Here"
           className="details-of-note border-outline-none"
           name="content"
           value={formtextArea}
@@ -116,7 +129,10 @@ export const NoteListPage = ({
           required
         />
         <div className="label-with-icons-container flex-center">
-          <div className="label-container">
+          <div className="label-container flex-center">
+            <label htmlFor="tags" className="text-size-sm">
+              Tag:
+            </label>
             <select
               className="tag"
               onChange={(e) => setTagState(e.target.value)}
@@ -129,6 +145,21 @@ export const NoteListPage = ({
               <option value="Teams">Teams</option>
             </select>
           </div>
+          <div className="priorityioption-container flex-center">
+            <label htmlFor="priority" className="text-size-sm">
+              Priority:
+            </label>
+            <select
+              className="priority"
+              onChange={(e) => setPriorityState(e.target.value)}
+              value={priorityState}
+            >
+              <option value="1">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
           <div className="close-icon-color-palatte-container flex-center">
             <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />
             {isEditing ? (

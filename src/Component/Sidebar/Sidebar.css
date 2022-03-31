@@ -1,21 +1,22 @@
 .sidebar-item-container {
   flex-basis: 20%;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
   position: fixed;
   top: 1.6rem;
   background-color: white;
   margin-top: 7.8rem;
   color: var(--dark-stone);
   cursor: pointer;
+  overflow-y: scroll;
 }
 .sidebar-item-with-icon {
   gap: 2rem;
   font-size: 2rem;
   font-weight: 300;
-  padding: 11px;
-  margin: 10px;
-  margin-left: 1rem;
+  padding: 8px;
+  margin: 9px;
+  margin-left: 1.6rem;
   width: 17rem;
   text-align: left;
 }
@@ -43,6 +44,10 @@
 .sidebar-icon-plus {
   font-size: 2rem;
   margin: 4px;
+}
+.activeLink {
+  color: var(--primary-color-dark);
+  background-color: var(--secondary-color);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-item-container {
