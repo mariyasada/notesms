@@ -42,8 +42,19 @@
   .Header-container {
     width: 100%;
     padding: 4px;
+    justify-content: space-between;
   }
   .menu-icon {
     display: block;
+    margin-left: 5px;
+  }
+  .heading-in-note-page {
+    padding: 0px 4px;
+    font-size: 2.7rem;
+    margin: 0px 9px;
+  }
+  .theme-icon {
+    margin-right: 2rem;
+    justify-self: flex-end;
   }
 }

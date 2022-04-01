@@ -53,12 +53,12 @@
   .image-of-homepage {
     object-fit: contain;
     width: 70%;
-    margin: -12rem 0 0 -3rem;
+    margin: -24rem 0 0 -3rem;
   }
   .quote-of-app {
     font-size: 3.5rem;
     width: 60%;
-    margin: -15rem 0 0 -3rem;
+    margin: -27rem 0 0 -3rem;
   }
   .btn-container {
     margin-left: 4rem;

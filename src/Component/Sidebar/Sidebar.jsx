@@ -15,13 +15,11 @@ export const Sidebar = () => {
   const [isFilterBox, setIsFilterBox] = useState(true);
 
   const { pathname } = useLocation();
-  console.log(pathname, "from");
 
   const addTagtoSidebar = () => {
     console.log(inputTag, "inputvalue");
     setTagList((prevdata) => [...prevdata, inputTag]);
     setInputTag("");
-    console.log(tagList);
   };
 
   const getActiveLinkStyle = ({ isActive }) => ({

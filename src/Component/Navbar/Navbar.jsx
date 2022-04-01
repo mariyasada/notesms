@@ -28,7 +28,10 @@ export const Navbar = () => {
           : "Header-container flex-center"
       }
     >
-      <div className="menu-icon">
+      <div
+        className="menu-icon"
+        style={{ color: theme === "light" ? "red" : "black" }}
+      >
         {open ? (
           <GiCancel className="menu-icon" onClick={() => setOpen(!open)} />
         ) : (

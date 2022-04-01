@@ -37,15 +37,16 @@
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-and-notes-container {
+    width: 100vw;
     flex-direction: column;
     flex-wrap: wrap;
     overflow-y: scroll;
   }
   .notelist-container {
-    margin: 2rem 0 0 -21rem;
+    margin: 2rem 0 0 -19rem;
   }
   .heading-others,
   .heading-Pinned {
-    margin-left: -7rem;
+    margin-left: 3rem;
   }
 }

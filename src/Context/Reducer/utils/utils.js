@@ -1,5 +1,5 @@
 const composeFunction=(state,functionList)=>(allNotes)=>{
-    console.log(allNotes,state);
+    
     return functionList.reduce((acc,currentFunction)=>{
         return currentFunction(state,acc);
     },allNotes);

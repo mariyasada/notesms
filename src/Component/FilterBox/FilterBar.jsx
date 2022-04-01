@@ -52,7 +52,7 @@ export const FilterBar = () => {
         <p className="filter-tags flex-center">Priority:</p>
         {PriorityFilters.map((priority) => {
           return (
-            <div className="priority-container flex-center">
+            <div className="priority-container flex-center" key={priority.id}>
               <li className="filter-list-item flex-center">
                 <label htmlFor={priority}>
                   <input
@@ -71,8 +71,11 @@ export const FilterBar = () => {
         <p className="filter-tags flex-center">Tags:</p>
         {tagFilters.map((tagname) => {
           return (
-            <div className="tags-container flex-center flex-direction-column">
-              <li className="filter-list-item flex-center" key={tagname.id}>
+            <div
+              className="tags-container flex-center flex-direction-column"
+              key={tagname.id}
+            >
+              <li className="filter-list-item flex-center">
                 <label htmlFor={tagname}>
                   <input
                     type="checkbox"

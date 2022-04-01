@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsSearch, BsCheckCircle, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
+import { FaBold } from "react-icons/fa";
 import { ColorPalette } from "../../Component/index";
 import "./NoteListpage.css";
 import "../colorPalette/colorPalette.css";
@@ -57,6 +58,8 @@ export const NoteListPage = ({
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
+        setTagState("");
+        setPriorityState("");
       } catch (err) {
         console.error("something went wrong", err);
       }
@@ -86,6 +89,11 @@ export const NoteListPage = ({
           }
         );
         console.log(data, "updated data");
+        setallNotes((prevdata) =>
+          prevdata.map((note) =>
+            note.id === EditItemId ? { ...note, ...data } : note
+          )
+        );
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
@@ -136,6 +144,7 @@ export const NoteListPage = ({
             onChange={(e) => setFormInput(e.target.value)}
             required
           />
+          {/* <FaBold /> */}
         </div>
         <textarea
           type="text"
@@ -184,7 +193,7 @@ export const NoteListPage = ({
               onChange={(e) => setPriorityState(e.target.value)}
               value={priorityState}
             >
-              <option value="1">Low</option>
+              <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
             </select>

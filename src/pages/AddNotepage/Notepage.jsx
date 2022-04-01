@@ -25,7 +25,7 @@ export const NotePage = () => {
   const [isOpen, setisOpen] = useState(false);
   const [forminput, setFormInput] = useState("");
   const [formtextArea, setFormTextArea] = useState("");
-  const [listColor, setListColor] = useState("LightGray");
+  const [listColor, setListColor] = useState("white");
   const [tagState, setTagState] = useState("class");
   const [priorityState, setPriorityState] = useState("Low");
   return (
