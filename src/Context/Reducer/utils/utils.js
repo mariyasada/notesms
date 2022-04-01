@@ -27,7 +27,7 @@ const notesSortByTag =(state,allNotes)=>{
 const filterBySearch=(state,allNotes)=>{
     if(state.searchByQuery)
     {
-        return allNotes.filter((note)=>(note.title.toLowerCase()|| note.content.toLowerCase()).includes(state.searchByQuery))
+        return allNotes.filter((note)=>(note.title.toLowerCase()|| note.content.toLowerCase()).includes(state.searchByQuery.toLowerCase()))
     }
     else return allNotes;
 }
