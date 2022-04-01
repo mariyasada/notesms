@@ -11,7 +11,7 @@
   overflow-y: scroll;
 }
 .sidebar-item-container-dark {
-  background-color: black;
+  background-color: #202020;
 }
 .sidebar-item-with-icon {
   gap: 2rem;

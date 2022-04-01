@@ -3,6 +3,7 @@
   height: 100vh;
   width: 100%;
   margin-bottom: 0;
+  background-color: red;
 }
 .heading-of-notes {
   font-size: 4rem;
@@ -17,9 +18,10 @@
   margin-top: 5rem;
 }
 .image-of-homepage {
-  height: 56rem;
-  width: 70rem;
+  height: 100vh;
+  width: 100%;
   margin-left: 0;
+  object-fit: contain;
 }
 .quote {
   color: var(--primary-color-dark);

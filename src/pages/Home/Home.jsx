@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <div
       className="HomePage-container flex-center flex-direction-column "
-      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
       <div className="heading-of-notes">
         <h1 className="heading">
@@ -18,12 +18,12 @@ export const HomePage = () => {
       </div>
       <div
         className="image-quote-container flex-center"
-        style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+        style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
       >
         <div className="image-container">
           <img
             className="image-of-homepage"
-            src="./assets/notes.png"
+            src="./assets/notes-bg.png"
             alt="notes image"
           />
         </div>

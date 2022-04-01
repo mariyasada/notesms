@@ -98,7 +98,7 @@ export const NoteListPage = ({
   return (
     <div
       className="notes-with-searchbar-container"
-      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
       <div className="search-input-center flex-center border-round">
         <BsSearch className="search-icon" />

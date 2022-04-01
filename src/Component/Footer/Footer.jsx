@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <div
       className="footer flex-center"
-      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
       <div className="footer-heading">Made by Mariya Sada | © | 2022</div>
       <ul className="nav-items">

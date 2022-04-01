@@ -31,7 +31,7 @@ export const NotePage = () => {
   return (
     <div
       className="note-page-container flex-center flex-direction-column"
-      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
       <Navbar />
       <div className="sidebar-and-notes-container flex-center">
