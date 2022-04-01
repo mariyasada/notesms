@@ -13,7 +13,6 @@ export const DeleteCard = ({ Note }) => {
   const RestoreNotesFromTrash = (Note) => {
     trashListDispatch({ type: "REMOVE_FROM_TRASH", payload: Note });
     setallNotes((prevdata) => [...prevdata, Note]);
-    alert("Note Successfully Restored");
   };
 
   return (

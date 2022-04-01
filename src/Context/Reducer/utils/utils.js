@@ -6,7 +6,7 @@ const composeFunction=(state,functionList)=>(allNotes)=>{
 }
 
 const notesSortByDate=(state,allNotes)=>{   
-    if(state.sortByDate==="Sort_by_date")
+    if(state.sortByDate==="sort_By_Date")
     {
         return allNotes.sort((a,b)=>new Date(a.date) - new Date(b.date));
     }

@@ -3,10 +3,7 @@ export const FilterReducer=(state,action)=>{
   console.log(action.payload)
     switch (action.type) {
         case "SORT_BY_DATE":  
-          return{...state,sortByDate:"Sort_by_date"}
-
-        case "SORT_BY_PRIORITY":  
-          return {...state,sortByPriority:"Sort_By_Priority"}
+          return{...state,sortByDate:"sort_By_Date"}       
 
           case "SET_TAG":
             return {...state,sortByTag:[...state.sortByTag,action.payload]}

@@ -15,7 +15,6 @@ export const ArchiveCard = ({ Note }) => {
       payload: Note,
     });
     setallNotes((prevData) => [...prevData, Note]);
-    alert("Note Unarchived");
   };
 
   const addToTrash = (Note) => {
@@ -25,6 +24,7 @@ export const ArchiveCard = ({ Note }) => {
     });
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
   };
+
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"

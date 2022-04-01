@@ -4,6 +4,8 @@ import { BsPinFill, BsPin } from "react-icons/bs";
 import { useArchiveNote } from "../../Context/archive-note-context";
 import { useNotes } from "../../Context/note-context";
 import "./NoteCard.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const NoteCard = ({
   Note,
@@ -51,16 +53,18 @@ export const NoteCard = ({
     archiveDispatch({ type: "ADD_TO_ARCHIVE", payload: Note });
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
-    alert("archived note");
+    notify();
   };
 
   const removefromNotesAddToTrash = (Note) => {
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
     const newItemofNotes = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItemofNotes);
-    alert("Note deleted, go to Trash");
   };
 
+  const notify = () => {
+    toast.dark("Note Archived,go to archived page");
+  };
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -109,6 +113,7 @@ export const NoteCard = ({
           />
         </div>
       </div>
+      <ToastContainer autoClose={5000} />
     </div>
   );
 };

@@ -44,7 +44,7 @@ export const FilterBar = () => {
               name="ragio-grp"
               value="sort-by-date"
               onChange={() => dispatch({ type: "SORT_BY_DATE" })}
-              checked={state.sortByDate === "Sort_by_date"}
+              checked={state.sortByDate === "sort_By_Date"}
             />
             Sort By Date
           </label>

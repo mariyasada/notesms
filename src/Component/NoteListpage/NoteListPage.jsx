@@ -55,7 +55,6 @@ export const NoteListPage = ({
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
-        alert("Note successfully added");
       } catch (err) {
         console.error("something went wrong", err);
       }
