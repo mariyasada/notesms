@@ -7,6 +7,7 @@ import "../colorPalette/colorPalette.css";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNotes } from "../../Context/note-context";
+import { useTheme } from "../../Context/theme-context";
 
 export const NoteListPage = ({
   isOpen,
@@ -33,6 +34,7 @@ export const NoteListPage = ({
     dispatch,
   } = useNotes();
 
+  const { theme, setTheme } = useTheme();
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {
       alert("please fill the data in inputs");
@@ -94,24 +96,41 @@ export const NoteListPage = ({
     }
   };
   return (
-    <div className="notes-with-searchbar-container">
+    <div
+      className="notes-with-searchbar-container"
+      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+    >
       <div className="search-input-center flex-center border-round">
         <BsSearch className="search-icon" />
         <input
           type="text"
-          className="input-searchbox"
+          className={
+            theme === "light"
+              ? "input-searchbox input-searchbox-dark"
+              : " input-searchbox  "
+          }
           placeholder="Search"
           onChange={(e) =>
             dispatch({ type: "SEARCH_BY_QUERY", payload: e.target.value })
           }
         />
       </div>
-      <form className="add-notes-container border-round flex-center flex-direction-column">
+      <form
+        className={
+          theme === "light"
+            ? "add-notes-container-dark add-notes-container border-round flex-center flex-direction-column"
+            : "add-notes-container border-round flex-center flex-direction-column"
+        }
+      >
         <div className="input-with-pin-icon-container flex-center">
           <input
             type="text"
             placeholder="Title"
-            className="title-of-note border-outline-none"
+            className={
+              theme === "light"
+                ? "title-of-note border-outline-none title-of-note-dark"
+                : "title-of-note border-outline-none"
+            }
             name="title"
             value={forminput}
             onChange={(e) => setFormInput(e.target.value)}
@@ -121,7 +140,11 @@ export const NoteListPage = ({
         <textarea
           type="text"
           placeholder="Text Here"
-          className="details-of-note border-outline-none"
+          className={
+            theme === "light"
+              ? "details-of-note border-outline-none details-of-note-dark"
+              : "details-of-note border-outline-none"
+          }
           name="content"
           value={formtextArea}
           onChange={(e) => setFormTextArea(e.target.value)}
@@ -129,7 +152,11 @@ export const NoteListPage = ({
         />
         <div className="label-with-icons-container flex-center">
           <div className="label-container flex-center">
-            <label htmlFor="tags" className="text-size-sm">
+            <label
+              htmlFor="tags"
+              className="text-size-sm"
+              style={{ color: theme === "light" ? "white" : "" }}
+            >
               Tag:
             </label>
             <select
@@ -145,7 +172,11 @@ export const NoteListPage = ({
             </select>
           </div>
           <div className="priorityioption-container flex-center">
-            <label htmlFor="priority" className="text-size-sm">
+            <label
+              htmlFor="priority"
+              className="text-size-sm"
+              style={{ color: theme === "light" ? "white" : "" }}
+            >
               Priority:
             </label>
             <select
@@ -159,7 +190,13 @@ export const NoteListPage = ({
             </select>
           </div>
 
-          <div className="close-icon-color-palatte-container flex-center">
+          <div
+            className={
+              theme === "light"
+                ? "close-icon-color-palatte-container flex-center icons-theme-dark"
+                : "close-icon-color-palatte-container flex-center"
+            }
+          >
             <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />
             {isEditing ? (
               <BsCheckCircle onClick={updateNote} />

@@ -19,7 +19,7 @@
 .image-of-homepage {
   height: 56rem;
   width: 70rem;
-  margin-left: -10rem;
+  margin-left: 0;
 }
 .quote {
   color: var(--primary-color-dark);

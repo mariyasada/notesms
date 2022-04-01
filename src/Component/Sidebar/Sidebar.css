@@ -10,6 +10,9 @@
   cursor: pointer;
   overflow-y: scroll;
 }
+.sidebar-item-container-dark {
+  background-color: black;
+}
 .sidebar-item-with-icon {
   gap: 2rem;
   font-size: 2rem;
@@ -40,6 +43,10 @@
   border: 2px solid var(--primary-color);
   padding: 5px;
   margin-left: 11px;
+}
+.input-tag-dark {
+  background-color: transparent;
+  color: white;
 }
 .sidebar-icon-plus {
   font-size: 2rem;

@@ -8,6 +8,7 @@ import {
   FilterBar,
 } from "../../Component";
 import { useNotes } from "../../Context/note-context";
+import { useTheme } from "../../Context/theme-context";
 import "./Notepage.css";
 
 export const NotePage = () => {
@@ -20,6 +21,7 @@ export const NotePage = () => {
     setEditItemId,
     filterData,
   } = useNotes();
+  const { theme, setTheme } = useTheme();
   const [isOpen, setisOpen] = useState(false);
   const [forminput, setFormInput] = useState("");
   const [formtextArea, setFormTextArea] = useState("");
@@ -27,7 +29,10 @@ export const NotePage = () => {
   const [tagState, setTagState] = useState("class");
   const [priorityState, setPriorityState] = useState("Low");
   return (
-    <div className="note-page-container flex-center flex-direction-column">
+    <div
+      className="note-page-container flex-center flex-direction-column"
+      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+    >
       <Navbar />
       <div className="sidebar-and-notes-container flex-center">
         <Sidebar />
@@ -50,7 +55,12 @@ export const NotePage = () => {
         />
       </div>
       <div className="title-notelist-container flex-center flex-direction-column">
-        <h2 className="text-size-md heading-others flex-center"> OTHERS</h2>
+        <h2
+          className="text-size-md heading-others flex-center"
+          style={{ color: theme === "light" ? "white" : "" }}
+        >
+          OTHERS
+        </h2>
         <div className="notelist-container flex-center">
           {filterData.map((note) => {
             return (
@@ -75,7 +85,12 @@ export const NotePage = () => {
         </div>
       </div>
       <div className="title-pinned-notelist-container flex-center flex-direction-column">
-        <h2 className="text-size-md heading-Pinned flex-center"> PINNED</h2>
+        <h2
+          className="text-size-md heading-Pinned flex-center"
+          style={{ color: theme === "light" ? "white" : "" }}
+        >
+          PINNED
+        </h2>
         <div className="notelist-container flex-center">
           {pinnedNotes.map((note) => {
             return <PinnedCard key={note.id} Note={note} />;

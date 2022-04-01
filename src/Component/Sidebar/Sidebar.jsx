@@ -4,12 +4,18 @@ import { CgProfile } from "react-icons/cg";
 import { BiArchiveIn, BiTrash, BiNote } from "react-icons/bi";
 import { BsPlusCircle } from "react-icons/bs";
 import "./Sidebar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FilterBar } from "../../Component/index";
+import { useTheme } from "../../Context/theme-context";
 
 export const Sidebar = () => {
+  const { theme, setTheme } = useTheme();
   const [tagList, setTagList] = useState([]);
   const [inputTag, setInputTag] = useState("");
+  const [isFilterBox, setIsFilterBox] = useState(true);
+
+  const { pathname } = useLocation();
+  console.log(pathname, "from");
 
   const addTagtoSidebar = () => {
     console.log(inputTag, "inputvalue");
@@ -22,12 +28,20 @@ export const Sidebar = () => {
     color: isActive ? "#d69d66" : "",
   });
   return (
-    <div className="sidebar-item-container flex-center">
-      <ul className="">
-        <li className="sidebar-item-with-icon flex-center">
-          <CgProfile className="sidebar-icon" />
-          <h2 className="sidebar-item-title">Profile</h2>
-        </li>
+    <div
+      className={
+        theme === "light"
+          ? " sidebar-item-container-dark sidebar-item-container flex-center "
+          : "sidebar-item-container flex-center "
+      }
+    >
+      <ul>
+        <Link to="/">
+          <li className="sidebar-item-with-icon flex-center">
+            <CgProfile className="sidebar-icon" />
+            <h2 className="sidebar-item-title">Profile</h2>
+          </li>
+        </Link>
         <Link to="/">
           <li className="sidebar-item-with-icon flex-center">
             <FaHome className="sidebar-icon" />
@@ -61,7 +75,9 @@ export const Sidebar = () => {
         })}
         <li className="input-with-icon flex-center">
           <input
-            className="input-tag"
+            className={
+              theme === "light" ? "input-tag input-tag-dark" : "input-tag"
+            }
             placeholder="Enter Tag here"
             value={inputTag}
             onChange={(e) => setInputTag(e.target.value)}
@@ -72,7 +88,8 @@ export const Sidebar = () => {
           />
         </li>
       </ul>
-      {<Link to="/notepage"></Link> ? <FilterBar /> : ""}
+
+      {isFilterBox && pathname === "/notepage" ? <FilterBar /> : null}
     </div>
   );
 };

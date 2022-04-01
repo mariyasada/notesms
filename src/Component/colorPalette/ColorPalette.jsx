@@ -2,6 +2,7 @@ import React from "react";
 import "./colorPalette.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTheme } from "../../Context/theme-context";
 
 const colors = [
   "#fca5a5",
@@ -21,6 +22,7 @@ const colors = [
 ];
 
 export const ColorPalette = ({ listColor, setListColor }) => {
+  const { theme, setTheme } = useTheme();
   const addColor = (color) => {
     setListColor(color);
     notify();
@@ -30,7 +32,10 @@ export const ColorPalette = ({ listColor, setListColor }) => {
     toast.dark("color added");
   };
   return (
-    <div className="colors-selector-container flex-center border-round ">
+    <div
+      className="colors-selector-container flex-center border-round "
+      style={{ backgroundColor: theme === "light" ? "whitesmoke" : "white" }}
+    >
       {colors.map((coloritem, index) => {
         return (
           <ul className="list-item-of-color flex-center" key={index}>

@@ -1,10 +1,15 @@
 import React from "react";
 import { BsGithub, BsTwitter, BsLinkedin } from "react-icons/bs";
+import { useTheme } from "../../Context/theme-context";
 import "../Footer/Footer.css";
 
 export const Footer = () => {
+  const { theme, setTheme } = useTheme();
   return (
-    <div className="footer flex-center">
+    <div
+      className="footer flex-center"
+      style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+    >
       <div className="footer-heading">Made by Mariya Sada | © | 2022</div>
       <ul className="nav-items">
         <li className="nav-item">

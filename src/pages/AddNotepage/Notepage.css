@@ -2,12 +2,20 @@
   width: 100vw;
   height: 56rem;
 }
+.note-page-container {
+  width: 100%;
+  margin-left: 1rem;
+}
 .notelist-container {
   width: 100%;
   gap: 10px;
   margin-left: 2.5rem;
   flex-wrap: wrap;
   height: auto;
+}
+.notelist-container-dark,
+.title-pinned-notelist-container-dark {
+  background-color: black;
 }
 .title-notelist-container,
 .title-pinned-notelist-container {
@@ -18,7 +26,7 @@
   justify-content: flex-start;
 }
 .title-pinned-notelist-container {
-  margin: 3rem 0 0 20rem;
+  margin: 3rem 0 1rem 20rem;
 }
 .heading-others,
 .heading-Pinned {
