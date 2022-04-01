@@ -1,0 +1,19 @@
+.error-image-container {
+  height: 50rem;
+  width: 60%;
+  object-fit: contain;
+  margin-top: 5rem;
+}
+.errorpage-message {
+  font-size: 3rem;
+  width: 30%;
+}
+.error-status {
+  color: var(--dark-blue);
+  font-size: 10rem;
+  margin: 4rem 0 0 3rem;
+}
+.link-to-homepage {
+  color: var(--dark-cyan);
+  cursor: pointer;
+}

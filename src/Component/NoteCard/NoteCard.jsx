@@ -4,6 +4,8 @@ import { BsPinFill, BsPin } from "react-icons/bs";
 import { useArchiveNote } from "../../Context/archive-note-context";
 import { useNotes } from "../../Context/note-context";
 import "./NoteCard.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const NoteCard = ({
   Note,
@@ -51,6 +53,7 @@ export const NoteCard = ({
     archiveDispatch({ type: "ADD_TO_ARCHIVE", payload: Note });
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
+    notify();
   };
 
   const removefromNotesAddToTrash = (Note) => {
@@ -59,6 +62,9 @@ export const NoteCard = ({
     setallNotes(newItemofNotes);
   };
 
+  const notify = () => {
+    toast.dark("Note Archived,go to archived page");
+  };
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -80,9 +86,15 @@ export const NoteCard = ({
       </div>
       <div className="tag-of-notes-container flex-center">
         <div className="tag-of-card">{Note.tag}</div>
+        {Note.priority === undefined ? (
+          ""
+        ) : (
+          <div className="priority-of-card">{Note.priority}</div>
+        )}
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
+
         <div className="icons-of-notes-container flex-center">
           <BiEdit
             title="edit"
@@ -101,6 +113,7 @@ export const NoteCard = ({
           />
         </div>
       </div>
+      <ToastContainer autoClose={5000} />
     </div>
   );
 };

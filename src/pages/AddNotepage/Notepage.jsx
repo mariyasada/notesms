@@ -5,6 +5,7 @@ import {
   NoteListPage,
   Sidebar,
   PinnedCard,
+  FilterBar,
 } from "../../Component";
 import { useNotes } from "../../Context/note-context";
 import "./Notepage.css";
@@ -17,17 +18,20 @@ export const NotePage = () => {
     setPinnedNotes,
     EditItemId,
     setEditItemId,
+    filterData,
   } = useNotes();
   const [isOpen, setisOpen] = useState(false);
   const [forminput, setFormInput] = useState("");
   const [formtextArea, setFormTextArea] = useState("");
   const [listColor, setListColor] = useState("LightGray");
   const [tagState, setTagState] = useState("class");
+  const [priorityState, setPriorityState] = useState("Low");
   return (
     <div className="note-page-container flex-center flex-direction-column">
       <Navbar />
       <div className="sidebar-and-notes-container flex-center">
         <Sidebar />
+
         <NoteListPage
           isOpen={isOpen}
           setisOpen={setisOpen}
@@ -41,12 +45,14 @@ export const NotePage = () => {
           setTagState={setTagState}
           EditItemId={EditItemId}
           setEditItemId={setEditItemId}
+          priorityState={priorityState}
+          setPriorityState={setPriorityState}
         />
       </div>
       <div className="title-notelist-container flex-center flex-direction-column">
         <h2 className="text-size-md heading-others flex-center"> OTHERS</h2>
         <div className="notelist-container flex-center">
-          {allNotes.map((note) => {
+          {filterData.map((note) => {
             return (
               <NoteCard
                 Note={note}

@@ -8,3 +8,4 @@ export {NoteCard} from "../Component/NoteCard/NoteCard";
 export {ArchiveCard} from '../Component/archiveDeleteCard/ArchiveCard';
 export {PinnedCard} from "../Component/PinnedCard/PinnedCard";
 export {DeleteCard} from "../Component/DeleteCard/DeleteCard"
+export {FilterBar} from "../Component/FilterBox/FilterBar"

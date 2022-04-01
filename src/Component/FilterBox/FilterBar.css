@@ -1,0 +1,42 @@
+.filterbar-conatiner {
+  flex-basis: 20%;
+}
+.filter-and-clear-filter-container {
+  gap: 2rem;
+  color: var(--dark-cyan);
+  margin-top: 2.4rem;
+}
+.filter {
+  margin-left: -4rem;
+}
+.clear-filters {
+  font-size: 1.4rem;
+}
+.filter-items-container {
+  padding: 9px;
+  margin-left: -3rem;
+  font-size: 1.5rem;
+}
+.filter-list-item {
+  justify-content: flex-start;
+  width: 100%;
+}
+.tags-container,
+.priority-container {
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+input {
+  margin-right: 5px;
+}
+.filter-tags {
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 8px;
+  font-weight: bold;
+  color: brown;
+}
+.priority-container {
+  font-size: small;
+}

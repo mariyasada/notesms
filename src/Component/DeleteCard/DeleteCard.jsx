@@ -28,6 +28,7 @@ export const DeleteCard = ({ Note }) => {
       </div>
       <div className="tag-of-notes-container flex-center">
         <div className="tag-of-card">{Note.tag}</div>
+        <div className="priority-of-card">{Note.priority}</div>
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>

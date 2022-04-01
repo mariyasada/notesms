@@ -24,6 +24,7 @@ export const ArchiveCard = ({ Note }) => {
     });
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
   };
+
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -37,6 +38,7 @@ export const ArchiveCard = ({ Note }) => {
       </div>
       <div className="tag-of-notes-container flex-center">
         <div className="tag-of-card">{Note.tag}</div>
+        <div className="priority-of-card">{Note.priority}</div>
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
