@@ -2,13 +2,18 @@ import React from "react";
 import { ArchiveCard, Sidebar, Navbar, DeleteCard } from "../../Component";
 import "../../Component/Sidebar/Sidebar.css";
 import { useArchiveNote } from "../../Context/archive-note-context";
+import { useTheme } from "../../Context/theme-context";
 import "./DeletedNotepage.css";
 
 export const DeletedNotePage = () => {
   const { trashListState, trashListDispatch } = useArchiveNote();
   const { TrashList } = trashListState;
+  const { theme, setTheme } = useTheme();
   return (
-    <div className="Deletenote-page-container flex-center">
+    <div
+      className="Deletenote-page-container flex-center"
+      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
+    >
       <Navbar />
       <div className="sidebar-container">
         <Sidebar />

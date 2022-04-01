@@ -6,6 +6,18 @@
   right: 0;
   background-color: white;
   border-bottom: 2px solid var(--light-teal);
+  justify-content: space-between;
+}
+.Header-container-dark {
+  background-color: #202020;
+  color: var(-- --golden-color);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 2px solid var(--white-color);
+  justify-content: space-between;
 }
 .heading-in-note-page {
   font-size: 3rem;
@@ -13,7 +25,6 @@
   padding: 7px;
   margin: 3px;
 }
-
 .name-of-app {
   color: var(--primary-color);
 }
@@ -21,12 +32,29 @@
   font-size: 2rem;
   display: none;
 }
+.theme-icon {
+  font-size: 2rem;
+  margin-right: 2rem;
+  color: var(--dark-cyan);
+  cursor: pointer;
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .Header-container {
     width: 100%;
     padding: 4px;
+    justify-content: space-between;
   }
   .menu-icon {
     display: block;
+    margin-left: 5px;
+  }
+  .heading-in-note-page {
+    padding: 0px 4px;
+    font-size: 2.7rem;
+    margin: 0px 9px;
+  }
+  .theme-icon {
+    margin-right: 2rem;
+    justify-self: flex-end;
   }
 }

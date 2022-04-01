@@ -40,3 +40,21 @@ input {
 .priority-container {
   font-size: small;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .filterbar-conatiner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: black; */
+    margin-left: 12rem;
+  }
+  .filter-and-clear-filter-container {
+    width: 100%;
+    margin: -7rem 0 0 1rem;
+  }
+  .filter-items-container {
+    display: flex;
+    flex-direction: row;
+    margin: 5rem -2rem 0 -11rem;
+  }
+}

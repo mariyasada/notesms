@@ -2,12 +2,20 @@
   width: 100vw;
   height: 56rem;
 }
+.note-page-container {
+  width: 100%;
+  /* margin-left: 1rem; */
+}
 .notelist-container {
   width: 100%;
   gap: 10px;
   margin-left: 2.5rem;
   flex-wrap: wrap;
   height: auto;
+}
+.notelist-container-dark,
+.title-pinned-notelist-container-dark {
+  background-color: black;
 }
 .title-notelist-container,
 .title-pinned-notelist-container {
@@ -18,7 +26,7 @@
   justify-content: flex-start;
 }
 .title-pinned-notelist-container {
-  margin: 3rem 0 0 20rem;
+  margin: 3rem 0 1rem 20rem;
 }
 .heading-others,
 .heading-Pinned {
@@ -29,15 +37,16 @@
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .sidebar-and-notes-container {
+    width: 100vw;
     flex-direction: column;
     flex-wrap: wrap;
     overflow-y: scroll;
   }
   .notelist-container {
-    margin: 2rem 0 0 -21rem;
+    margin: 2rem 0 0 -19rem;
   }
   .heading-others,
   .heading-Pinned {
-    margin-left: -7rem;
+    margin-left: 3rem;
   }
 }
