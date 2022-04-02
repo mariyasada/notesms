@@ -30,7 +30,8 @@
 input {
   margin-right: 5px;
 }
-.filter-tags {
+.filter-tags,
+.filter-priority {
   justify-content: flex-start;
   width: 100%;
   margin-top: 8px;
@@ -45,16 +46,32 @@ input {
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* background-color: black; */
     margin-left: 12rem;
   }
   .filter-and-clear-filter-container {
     width: 100%;
-    margin: -7rem 0 0 1rem;
+    margin: -10rem 0 0 1rem;
+  }
+  .filter,
+  .clear-filters {
+    width: 7rem;
+    font-size: 2rem;
   }
   .filter-items-container {
     display: flex;
     flex-direction: row;
-    margin: 5rem -2rem 0 -11rem;
+    margin: 3rem -2rem 0 -16rem;
+  }
+  .sortbydate {
+    display: flex;
+    flex-direction: row;
+    width: 10rem;
+    font-size: 1.6rem;
+    margin-top: -6rem;
+  }
+  .filter-priority {
+    display: flex;
+    width: 6rem;
+    margin: -1rem 0 0 -11rem;
   }
 }

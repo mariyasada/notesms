@@ -9,8 +9,9 @@ export const TrashNotesReducer=(state,action)=>{
       case "REMOVE_FROM_TRASH": 
       (async () => {
         await axios.delete(
-          `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${action.payload}`
+          `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${action.payload.id}`
         );
+        
       })();       
              return {...state,TrashList:state.TrashList.filter((item)=>item.id !== action.payload.id)}
                  

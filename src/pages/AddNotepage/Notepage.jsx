@@ -20,6 +20,8 @@ export const NotePage = () => {
     EditItemId,
     setEditItemId,
     filterData,
+    isEditing,
+    setEditing,
   } = useNotes();
   const { theme, setTheme } = useTheme();
   const [isOpen, setisOpen] = useState(false);
@@ -28,6 +30,7 @@ export const NotePage = () => {
   const [listColor, setListColor] = useState("white");
   const [tagState, setTagState] = useState("class");
   const [priorityState, setPriorityState] = useState("Low");
+
   return (
     <div
       className="note-page-container flex-center flex-direction-column"
@@ -79,6 +82,8 @@ export const NotePage = () => {
                 setTagState={setTagState}
                 setEditItemId={setEditItemId}
                 EditItemId={EditItemId}
+                priorityState={priorityState}
+                setPriorityState={setPriorityState}
               />
             );
           })}

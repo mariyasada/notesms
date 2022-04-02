@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNotes } from "../../Context/note-context";
 import { useTheme } from "../../Context/theme-context";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export const NoteListPage = ({
   isOpen,
@@ -36,6 +38,10 @@ export const NoteListPage = ({
   } = useNotes();
 
   const { theme, setTheme } = useTheme();
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {
       alert("please fill the data in inputs");
@@ -60,6 +66,7 @@ export const NoteListPage = ({
         setisOpen(false);
         setTagState("");
         setPriorityState("");
+        setListColor("");
       } catch (err) {
         console.error("something went wrong", err);
       }
@@ -76,33 +83,36 @@ export const NoteListPage = ({
       alert("please fill the data in inputs");
     } else {
       try {
+        const noteObj = {
+          id: uuidv4(),
+          title: forminput,
+          content: formtextArea,
+          color: listColor,
+          date: new Date().toLocaleDateString(),
+          tag: tagState,
+          priority: priorityState,
+        };
         const { data } = await axios.put(
           `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${EditItemId}`,
-          {
-            id: uuidv4(),
-            title: forminput,
-            content: formtextArea,
-            color: listColor,
-            date: new Date().toLocaleDateString(),
-            tag: tagState,
-            priority: priorityState,
-          }
+          noteObj
         );
         console.log(data, "updated data");
         setallNotes((prevdata) =>
           prevdata.map((note) =>
-            note.id === EditItemId ? { ...note, ...data } : note
+            note.id === EditItemId ? { ...note, ...noteObj } : note
           )
         );
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
         setEditing(!isEditing);
+        setListColor("");
       } catch (err) {
         console.error("something went wrong", err);
       }
     }
   };
+
   return (
     <div
       className="notes-with-searchbar-container"
@@ -159,6 +169,9 @@ export const NoteListPage = ({
           onChange={(e) => setFormTextArea(e.target.value)}
           required
         />
+        <div className="">
+          <ReactQuill theme="snow" value={forminput} onChange={setFormInput} />
+        </div>
         <div className="label-with-icons-container flex-center">
           <div className="label-container flex-center">
             <label

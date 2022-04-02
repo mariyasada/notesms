@@ -20,6 +20,8 @@ export const NoteCard = ({
   tagState,
   setTagState,
   setEditItemId,
+  priorityState,
+  setPriorityState,
 }) => {
   const [isPinned, setIsPinned] = useState(false);
   const { isEditing, setEditing, allNotes, setallNotes } = useNotes();
@@ -45,6 +47,7 @@ export const NoteCard = ({
     setFormTextArea(note.content);
     setListColor(note.color);
     setTagState(note.tag);
+    setPriorityState(note.priority);
     setEditing(!isEditing);
     setEditItemId(note.id);
   };
@@ -54,12 +57,14 @@ export const NoteCard = ({
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
     notify();
+    removePinnedNotes(Note);
   };
 
   const removefromNotesAddToTrash = (Note) => {
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
     const newItemofNotes = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItemofNotes);
+    removePinnedNotes(Note);
   };
 
   const notify = () => {
