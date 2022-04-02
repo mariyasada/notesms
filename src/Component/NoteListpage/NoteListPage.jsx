@@ -9,8 +9,6 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNotes } from "../../Context/note-context";
 import { useTheme } from "../../Context/theme-context";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 
 export const NoteListPage = ({
   isOpen,
@@ -25,6 +23,8 @@ export const NoteListPage = ({
   setTagState,
   priorityState,
   setPriorityState,
+  pinnedNotes,
+  setPinnedNotes,
 }) => {
   const {
     allNotes,
@@ -38,9 +38,6 @@ export const NoteListPage = ({
   } = useNotes();
 
   const { theme, setTheme } = useTheme();
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty()
-  );
 
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {
@@ -84,7 +81,6 @@ export const NoteListPage = ({
     } else {
       try {
         const noteObj = {
-          id: uuidv4(),
           title: forminput,
           content: formtextArea,
           color: listColor,
@@ -98,6 +94,11 @@ export const NoteListPage = ({
         );
         console.log(data, "updated data");
         setallNotes((prevdata) =>
+          prevdata.map((note) =>
+            note.id === EditItemId ? { ...note, ...noteObj } : note
+          )
+        );
+        setPinnedNotes((prevdata) =>
           prevdata.map((note) =>
             note.id === EditItemId ? { ...note, ...noteObj } : note
           )
@@ -169,9 +170,7 @@ export const NoteListPage = ({
           onChange={(e) => setFormTextArea(e.target.value)}
           required
         />
-        <div className="">
-          <ReactQuill theme="snow" value={forminput} onChange={setFormInput} />
-        </div>
+        <div className=""></div>
         <div className="label-with-icons-container flex-center">
           <div className="label-container flex-center">
             <label

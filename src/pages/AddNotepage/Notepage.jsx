@@ -55,6 +55,8 @@ export const NotePage = () => {
           setEditItemId={setEditItemId}
           priorityState={priorityState}
           setPriorityState={setPriorityState}
+          pinnedNotes={pinnedNotes}
+          setPinnedNotes={setPinnedNotes}
         />
       </div>
       <div className="title-notelist-container flex-center flex-direction-column">
