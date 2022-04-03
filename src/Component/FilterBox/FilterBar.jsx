@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../FilterBox/FilterBar.css";
 import { useNotes } from "../../Context/note-context";
 
@@ -38,7 +38,7 @@ export const FilterBar = () => {
       </div>
       <ul className="filter-items-container flex-direction-column flex-center">
         <li className="filter-list-item flex-center">
-          <label htmlFor="sort-by-date">
+          <label htmlFor="sort-by-date" className="sortbydate">
             <input
               type="radio"
               name="ragio-grp"
@@ -49,7 +49,7 @@ export const FilterBar = () => {
             Sort By Date
           </label>
         </li>
-        <p className="filter-tags flex-center">Priority:</p>
+        <p className="filter-priority flex-center">Priority:</p>
         {PriorityFilters.map((priority) => {
           return (
             <div className="priority-container flex-center" key={priority.id}>

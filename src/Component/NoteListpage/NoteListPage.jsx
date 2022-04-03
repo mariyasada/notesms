@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BsSearch, BsCheckCircle, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
-import { FaBold } from "react-icons/fa";
 import { ColorPalette } from "../../Component/index";
 import "./NoteListpage.css";
 import "../colorPalette/colorPalette.css";
@@ -9,6 +8,10 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNotes } from "../../Context/note-context";
 import { useTheme } from "../../Context/theme-context";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { modules, formats } from "../Editor/constant";
+import "../Editor/Editor.css";
 
 export const NoteListPage = ({
   isOpen,
@@ -23,6 +26,9 @@ export const NoteListPage = ({
   setTagState,
   priorityState,
   setPriorityState,
+  setPinnedNotes,
+  setlabelInput,
+  labelinput,
 }) => {
   const {
     allNotes,
@@ -36,6 +42,8 @@ export const NoteListPage = ({
   } = useNotes();
 
   const { theme, setTheme } = useTheme();
+  const [expand, setExpand] = useState(false);
+
   const addNote = async () => {
     if (forminput === "" || formtextArea == "") {
       alert("please fill the data in inputs");
@@ -51,15 +59,17 @@ export const NoteListPage = ({
             date: new Date().toLocaleDateString(),
             tag: tagState,
             priority: priorityState,
+            label: labelinput,
           }
         );
-
+        console.log(data, "adding");
         setallNotes((prevdata) => [...prevdata, data]);
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
-        setTagState("");
-        setPriorityState("");
+        setlabelInput("");
+        setExpand(false);
+        setListColor("");
       } catch (err) {
         console.error("something went wrong", err);
       }
@@ -68,6 +78,8 @@ export const NoteListPage = ({
   const cancleNoteInput = () => {
     setFormInput("");
     setFormTextArea("");
+    setExpand(false);
+    setisOpen(false);
   };
 
   const updateNote = async () => {
@@ -76,33 +88,53 @@ export const NoteListPage = ({
       alert("please fill the data in inputs");
     } else {
       try {
+        const noteObj = {
+          title: forminput,
+          content: formtextArea,
+          color: listColor,
+          date: new Date().toLocaleDateString(),
+          tag: tagState,
+          priority: priorityState,
+          label: labelinput,
+        };
         const { data } = await axios.put(
           `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${EditItemId}`,
-          {
-            id: uuidv4(),
-            title: forminput,
-            content: formtextArea,
-            color: listColor,
-            date: new Date().toLocaleDateString(),
-            tag: tagState,
-            priority: priorityState,
-          }
+          noteObj
         );
         console.log(data, "updated data");
         setallNotes((prevdata) =>
           prevdata.map((note) =>
-            note.id === EditItemId ? { ...note, ...data } : note
+            note.id === EditItemId ? { ...note, ...noteObj } : note
+          )
+        );
+        setPinnedNotes((prevdata) =>
+          prevdata.map((note) =>
+            note.id === EditItemId ? { ...note, ...noteObj } : note
           )
         );
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
         setEditing(!isEditing);
+        setlabelInput("");
+        setListColor("");
+        setExpand(false);
       } catch (err) {
         console.error("something went wrong", err);
       }
     }
   };
+
+  const handleInputChange = (e) => {
+    setFormTextArea(e);
+    console.log(formtextArea);
+  };
+
+  const handleExpandandColorPalette = () => {
+    setisOpen((isOpen) => !isOpen);
+    setExpand(true);
+  };
+
   return (
     <div
       className="notes-with-searchbar-container"
@@ -129,6 +161,7 @@ export const NoteListPage = ({
             ? "add-notes-container-dark add-notes-container border-round flex-center flex-direction-column"
             : "add-notes-container border-round flex-center flex-direction-column"
         }
+        style={{ backgroundColor: listColor }}
       >
         <div className="input-with-pin-icon-container flex-center">
           <input
@@ -142,11 +175,12 @@ export const NoteListPage = ({
             name="title"
             value={forminput}
             onChange={(e) => setFormInput(e.target.value)}
+            onClick={() => setExpand(true)}
             required
           />
-          {/* <FaBold /> */}
         </div>
-        <textarea
+
+        {/* <textarea
           type="text"
           placeholder="Text Here"
           className={
@@ -158,14 +192,25 @@ export const NoteListPage = ({
           value={formtextArea}
           onChange={(e) => setFormTextArea(e.target.value)}
           required
-        />
+        /> */}
+        {/* ///////////////////////////  editor ////// */}
+        {expand ? (
+          <div className="editor-quill flex-center">
+            <ReactQuill
+              theme="snow"
+              value={formtextArea}
+              onChange={(e) => handleInputChange(e)}
+              modules={modules}
+              formats={formats}
+              className="editor-of-note"
+              placeholder="Add a note..."
+            />
+          </div>
+        ) : null}
+
         <div className="label-with-icons-container flex-center">
           <div className="label-container flex-center">
-            <label
-              htmlFor="tags"
-              className="text-size-sm"
-              style={{ color: theme === "light" ? "white" : "" }}
-            >
+            <label htmlFor="tags" className="text-size-sm">
               Tag:
             </label>
             <select
@@ -181,11 +226,7 @@ export const NoteListPage = ({
             </select>
           </div>
           <div className="priorityioption-container flex-center">
-            <label
-              htmlFor="priority"
-              className="text-size-sm"
-              style={{ color: theme === "light" ? "white" : "" }}
-            >
+            <label htmlFor="priority" className="text-size-sm">
               Priority:
             </label>
             <select
@@ -198,6 +239,17 @@ export const NoteListPage = ({
               <option value="High">High</option>
             </select>
           </div>
+          <div className="label-add-container flex-center">
+            <label htmlFor="label" className="text-size-sm flex-center">
+              Label:
+              <input
+                type="text"
+                className="label-input"
+                value={labelinput}
+                onChange={(e) => setlabelInput(e.target.value)}
+              />
+            </label>
+          </div>
 
           <div
             className={
@@ -206,7 +258,7 @@ export const NoteListPage = ({
                 : "close-icon-color-palatte-container flex-center"
             }
           >
-            <IoColorPalette onClick={() => setisOpen((isOpen) => !isOpen)} />
+            <IoColorPalette onClick={handleExpandandColorPalette} />
             {isEditing ? (
               <BsCheckCircle onClick={updateNote} />
             ) : (

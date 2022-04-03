@@ -20,20 +20,24 @@ export const NotePage = () => {
     EditItemId,
     setEditItemId,
     filterData,
+    isEditing,
+    setEditing,
   } = useNotes();
   const { theme, setTheme } = useTheme();
   const [isOpen, setisOpen] = useState(false);
   const [forminput, setFormInput] = useState("");
   const [formtextArea, setFormTextArea] = useState("");
-  const [listColor, setListColor] = useState("white");
+  const [listColor, setListColor] = useState("");
   const [tagState, setTagState] = useState("class");
   const [priorityState, setPriorityState] = useState("Low");
+  const [labelinput, setlabelInput] = useState("");
+
   return (
     <div
       className="note-page-container flex-center flex-direction-column"
       style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="sidebar-and-notes-container flex-center">
         <Sidebar />
 
@@ -52,6 +56,9 @@ export const NotePage = () => {
           setEditItemId={setEditItemId}
           priorityState={priorityState}
           setPriorityState={setPriorityState}
+          setPinnedNotes={setPinnedNotes}
+          labelinput={labelinput}
+          setlabelInput={setlabelInput}
         />
       </div>
       <div className="title-notelist-container flex-center flex-direction-column">
@@ -69,16 +76,16 @@ export const NotePage = () => {
                 key={note.id}
                 pinnedNotes={pinnedNotes}
                 setPinnedNotes={setPinnedNotes}
-                forminput={forminput}
                 setFormInput={setFormInput}
-                formtextArea={formtextArea}
                 setFormTextArea={setFormTextArea}
                 listColor={listColor}
                 setListColor={setListColor}
-                tagState={tagState}
                 setTagState={setTagState}
                 setEditItemId={setEditItemId}
-                EditItemId={EditItemId}
+                setPriorityState={setPriorityState}
+                setlabelInput={setlabelInput}
+                isOpen={isOpen}
+                setisOpen={setisOpen}
               />
             );
           })}
