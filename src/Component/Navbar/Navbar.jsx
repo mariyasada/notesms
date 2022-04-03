@@ -38,7 +38,8 @@ export const Navbar = () => {
           <FiMenu className="menu-icon" onClick={() => setOpen(!open)} />
         )}
       </div>
-      <div className="heading-in-note-page">
+
+      <div className="heading-in-note-page ">
         <Link to="/">
           <h1 className="heading">
             <span className="name-of-app">MS</span> Notes
@@ -55,6 +56,7 @@ export const Navbar = () => {
           <FaMoon onClick={themeClickHandler} />
         )}
       </div>
+
       {open && <Hamburger className="hamburger-menu-container" />}
     </div>
   );
