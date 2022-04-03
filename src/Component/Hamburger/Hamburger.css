@@ -14,7 +14,7 @@
   display: none;
 }
 .hamburger-menu-item {
-  color: var(--light-teal);
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   text-align: left;

@@ -14,7 +14,7 @@ export const DeletedNotePage = () => {
       className="Deletenote-page-container flex-center"
       style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="sidebar-container">
         <Sidebar />
       </div>
