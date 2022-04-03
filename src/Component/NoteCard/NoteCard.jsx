@@ -11,26 +11,32 @@ export const NoteCard = ({
   Note,
   pinnedNotes,
   setPinnedNotes,
-  forminput,
   setFormInput,
-  formtextArea,
   setFormTextArea,
-  listColor,
   setListColor,
-  tagState,
   setTagState,
   setEditItemId,
-  priorityState,
   setPriorityState,
+  isOpen,
+  setisOpen,
 }) => {
   const [isPinned, setIsPinned] = useState(false);
   const { isEditing, setEditing, allNotes, setallNotes } = useNotes();
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
     useArchiveNote();
 
+  console.log(Note.content, "content");
+
   const addPinnedNote = (note) => {
-    setIsPinned(!isPinned);
-    setPinnedNotes((prevdata) => [...prevdata, note]);
+    const newItem = pinnedNotes.find((item) => item.id === note.id);
+    console.log(newItem, "true");
+    if (newItem) {
+      // setIsPinned();
+      console.log("note already pinned");
+    } else {
+      setIsPinned(!isPinned);
+      setPinnedNotes((prevdata) => [...prevdata, note]);
+    }
   };
 
   const removePinnedNotes = (note) => {
@@ -87,15 +93,28 @@ export const NoteCard = ({
         )}
       </div>
       <div className="description-of-notes-container flex-center">
-        <p className="description-of-notes">{Note.content}</p>
+        <div
+          className="description-of-notes"
+          dangerouslySetInnerHTML={{
+            __html: Note.content,
+          }}
+        />
       </div>
       <div className="tag-of-notes-container flex-center">
-        <div className="tag-of-card">{Note.tag}</div>
-        {Note.priority === undefined ? (
-          ""
+        {Note.tag === undefined && Note.tag === "" ? (
+          <div className="priority-of-card">class</div>
+        ) : (
+          <div className="tag-of-card">{Note.tag}</div>
+        )}
+
+        {Note.priority === undefined && Note.priority === "" ? (
+          <div className="priority-of-card">Low</div>
         ) : (
           <div className="priority-of-card">{Note.priority}</div>
         )}
+        <div className="label-container">
+          <div className="label-of-card">{Note.label}</div>
+        </div>
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
