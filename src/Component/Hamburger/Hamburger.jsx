@@ -1,17 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../Context/theme-context";
 import "../Hamburger/Hamburger.css";
 import "../Sidebar/Sidebar.css";
 
 export const Hamburger = () => {
-  const { theme, setTheme } = useTheme();
   return (
     <div>
-      <ul
-        className="hamburger-menu-container"
-        style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
-      >
+      <ul className="hamburger-menu-container">
         <Link to="/notepage" className="hamburger-menu-item">
           Home
         </Link>
