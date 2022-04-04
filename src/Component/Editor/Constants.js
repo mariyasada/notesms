@@ -1,9 +1,9 @@
 const modules = {
   toolbar: [
     [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline", "strike","blockquote"],  
+    ["bold", "italic", "underline", "strike","blockquote"]
     
-  ],
+  ]
 };
 
 const formats = [
@@ -12,7 +12,7 @@ const formats = [
   "italic",
   "underline",
   "strike",
-  "blockquote",
+  "blockquote"
  
 ];
 export {modules,formats}

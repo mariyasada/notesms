@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsSearch, BsCheckCircle, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
+import { FaBold } from "react-icons/fa";
 import { ColorPalette } from "../../Component/index";
 import "./NoteListpage.css";
 import "../colorPalette/colorPalette.css";
@@ -10,7 +11,7 @@ import { useNotes } from "../../Context/note-context";
 import { useTheme } from "../../Context/theme-context";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { modules, formats } from "../Editor/constant";
+import { modules, formats } from "../Editor/Constants";
 import "../Editor/Editor.css";
 
 export const NoteListPage = ({
@@ -26,6 +27,7 @@ export const NoteListPage = ({
   setTagState,
   priorityState,
   setPriorityState,
+  pinnedNotes,
   setPinnedNotes,
   setlabelInput,
   labelinput,
@@ -63,13 +65,14 @@ export const NoteListPage = ({
           }
         );
         console.log(data, "adding");
+
         setallNotes((prevdata) => [...prevdata, data]);
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
+        setListColor("");
         setlabelInput("");
         setExpand(false);
-        setListColor("");
       } catch (err) {
         console.error("something went wrong", err);
       }
@@ -116,15 +119,14 @@ export const NoteListPage = ({
         setFormTextArea("");
         setisOpen(false);
         setEditing(!isEditing);
-        setlabelInput("");
         setListColor("");
+        setlabelInput("");
         setExpand(false);
       } catch (err) {
         console.error("something went wrong", err);
       }
     }
   };
-
   const handleInputChange = (e) => {
     setFormTextArea(e);
     console.log(formtextArea);
@@ -180,20 +182,6 @@ export const NoteListPage = ({
           />
         </div>
 
-        {/* <textarea
-          type="text"
-          placeholder="Text Here"
-          className={
-            theme === "light"
-              ? "details-of-note border-outline-none details-of-note-dark"
-              : "details-of-note border-outline-none"
-          }
-          name="content"
-          value={formtextArea}
-          onChange={(e) => setFormTextArea(e.target.value)}
-          required
-        /> */}
-        {/* ///////////////////////////  editor ////// */}
         {expand ? (
           <div className="editor-quill flex-center">
             <ReactQuill
@@ -207,7 +195,7 @@ export const NoteListPage = ({
             />
           </div>
         ) : null}
-
+        <div className=""></div>
         <div className="label-with-icons-container flex-center">
           <div className="label-container flex-center">
             <label htmlFor="tags" className="text-size-sm">
@@ -240,7 +228,10 @@ export const NoteListPage = ({
             </select>
           </div>
           <div className="label-add-container flex-center">
-            <label htmlFor="label" className="text-size-sm flex-center">
+            <label
+              htmlFor="label"
+              className="text-size-sm flex-center label-add"
+            >
               Label:
               <input
                 type="text"

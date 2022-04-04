@@ -11,11 +11,16 @@ export const NoteCard = ({
   Note,
   pinnedNotes,
   setPinnedNotes,
+  forminput,
   setFormInput,
+  formtextArea,
   setFormTextArea,
+  listColor,
   setListColor,
+  tagState,
   setTagState,
   setEditItemId,
+  priorityState,
   setPriorityState,
   isOpen,
   setisOpen,
@@ -31,7 +36,6 @@ export const NoteCard = ({
     const newItem = pinnedNotes.find((item) => item.id === note.id);
     console.log(newItem, "true");
     if (newItem) {
-      // setIsPinned();
       console.log("note already pinned");
     } else {
       setIsPinned(!isPinned);
@@ -112,6 +116,7 @@ export const NoteCard = ({
         ) : (
           <div className="priority-of-card">{Note.priority}</div>
         )}
+
         <div className="label-container">
           <div className="label-of-card">{Note.label}</div>
         </div>

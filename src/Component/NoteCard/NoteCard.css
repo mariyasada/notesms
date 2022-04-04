@@ -32,11 +32,6 @@
   align-self: flex-start;
   margin-left: 2rem;
 }
-.description-of-notes > ol,
-.description-of-notes > ul {
-  margin-left: 8rem;
-}
-
 .icons-of-notes-container {
   justify-content: flex-end;
   font-size: 2rem;
@@ -59,10 +54,6 @@
 .label-of-card {
   /* background-color: beige; */
   padding: 4px;
-}
-.note-descr > ol,
-.note-descr > ul {
-  margin-left: 2rem;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .notecard-container {

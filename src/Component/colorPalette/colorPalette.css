@@ -25,7 +25,7 @@
   .colors-selector-container {
     top: 46rem;
     left: 17.6rem;
-    z-index: 120;
+    z-index: 4;
     height: auto;
     width: 14rem;
     padding: 4px;

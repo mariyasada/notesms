@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../Context/theme-context";
 import "../Hamburger/Hamburger.css";
 import "../Sidebar/Sidebar.css";
+import { useTheme } from "../../Context/theme-context";
 
 export const Hamburger = () => {
   const { theme, setTheme } = useTheme();

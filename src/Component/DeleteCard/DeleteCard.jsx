@@ -30,8 +30,6 @@ export const DeleteCard = ({ Note }) => {
             __html: Note.content,
           }}
         />
-        {/* {Note.content}
-        </p> */}
       </div>
       <div className="tag-of-notes-container flex-center">
         <div className="tag-of-card">{Note.tag}</div>
