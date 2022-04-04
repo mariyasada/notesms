@@ -5,8 +5,9 @@
   left: 0;
   right: 0;
   background-color: white;
-  border-bottom: 2px solid var(--light-teal);
+  /* border-bottom: 2px solid var(--light-teal); */
   justify-content: space-between;
+  z-index: 90;
 }
 .Header-container-dark {
   background-color: #202020;
@@ -22,8 +23,7 @@
 .heading-in-note-page {
   font-size: 3rem;
   color: var(--secondary-color);
-  padding: 7px;
-  margin: 3px;
+  padding: 4px;
 }
 .name-of-app {
   color: var(--primary-color);
@@ -34,23 +34,24 @@
 }
 .theme-icon {
   font-size: 2rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   color: var(--dark-cyan);
   cursor: pointer;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) {
   .Header-container {
     width: 100%;
     padding: 4px;
     justify-content: space-between;
+    /* border: none; */
   }
   .menu-icon {
-    display: block;
+    display: flex;
+    /* margin-right: auto; */
+    justify-self: flex-start;
   }
   .heading-in-note-page {
-    padding: 0px 4px;
     font-size: 2.7rem;
-    margin: auto;
   }
   .theme-icon {
     margin-right: 2rem;

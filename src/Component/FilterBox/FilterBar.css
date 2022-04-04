@@ -47,6 +47,7 @@ input {
     display: flex;
     flex-direction: row;
     margin-left: 12rem;
+    /* display: none; */
   }
   .filter-and-clear-filter-container {
     width: 100%;
