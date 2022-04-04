@@ -70,8 +70,6 @@ export const NoteListPage = ({
         setFormInput("");
         setFormTextArea("");
         setisOpen(false);
-        // setTagState("");
-        // setPriorityState("");
         setListColor("");
         setlabelInput("");
         setExpand(false);
@@ -182,21 +180,8 @@ export const NoteListPage = ({
             onClick={() => setExpand(true)}
             required
           />
-          {/* <FaBold /> */}
         </div>
-        {/* <textarea
-          type="text"
-          placeholder="Text Here"
-          className={
-            theme === "light"
-              ? "details-of-note border-outline-none details-of-note-dark"
-              : "details-of-note border-outline-none"
-          }
-          name="content"
-          value={formtextArea}
-          onChange={(e) => setFormTextArea(e.target.value)}
-          required
-        /> */}
+
         {expand ? (
           <div className="editor-quill flex-center">
             <ReactQuill
