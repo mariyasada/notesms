@@ -1,5 +1,5 @@
 .notecard-container {
-  width: 25rem;
+  width: 27rem;
   height: auto;
   box-shadow: 2px 3px 4px var(--light-stone);
   gap: 10px;
@@ -40,6 +40,7 @@
 }
 .notes-icon-notecard {
   color: var(--dark-stone);
+  cursor: pointer;
 }
 .time-date-and-icon-container {
   width: 100%;
@@ -49,6 +50,10 @@
   font-size: small;
   margin: 0 2rem 1rem 0.6rem;
   color: var(--dark-stone);
+}
+.label-of-card {
+  /* background-color: beige; */
+  padding: 4px;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .notecard-container {

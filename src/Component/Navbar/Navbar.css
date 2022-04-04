@@ -5,8 +5,9 @@
   left: 0;
   right: 0;
   background-color: white;
-  border-bottom: 2px solid var(--light-teal);
+  box-shadow: 3px 3px 4px var(--light-stone);
   justify-content: space-between;
+  z-index: 90;
 }
 .Header-container-dark {
   background-color: #202020;
@@ -16,13 +17,13 @@
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 2px solid var(--white-color);
+  box-shadow: 3px 3px 4px var(--light-stone);
   justify-content: space-between;
 }
 .heading-in-note-page {
   font-size: 3rem;
   color: var(--secondary-color);
-  padding: 7px;
+  padding: 4px;
   margin: 3px;
 }
 .name-of-app {
@@ -34,7 +35,7 @@
 }
 .theme-icon {
   font-size: 2rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   color: var(--dark-cyan);
   cursor: pointer;
 }
@@ -45,7 +46,8 @@
     justify-content: space-between;
   }
   .menu-icon {
-    display: block;
+    display: flex;
+    justify-self: flex-start;
   }
   .heading-in-note-page {
     padding: 0px 4px;

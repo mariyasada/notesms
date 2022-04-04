@@ -19,14 +19,16 @@
 }
 .title-notelist-container,
 .title-pinned-notelist-container {
-  width: 80%;
+  width: 100%;
   height: auto;
   gap: 12px;
-  margin: -15rem 0 0 20rem;
+  margin: -2rem 0 0 44rem;
+  /* margin: -2rem 0 0 20rem; */
   justify-content: flex-start;
 }
 .title-pinned-notelist-container {
-  margin: 3rem 0 1rem 20rem;
+  /* margin: 3rem 0 1rem 20rem; */
+  margin: 3rem 0 1rem 44rem;
 }
 .heading-others,
 .heading-Pinned {

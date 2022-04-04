@@ -27,16 +27,16 @@ export const NotePage = () => {
   const [isOpen, setisOpen] = useState(false);
   const [forminput, setFormInput] = useState("");
   const [formtextArea, setFormTextArea] = useState("");
-  const [listColor, setListColor] = useState("white");
+  const [listColor, setListColor] = useState("");
   const [tagState, setTagState] = useState("class");
   const [priorityState, setPriorityState] = useState("Low");
+  const [labelinput, setlabelInput] = useState("");
 
   return (
     <div
       className="note-page-container flex-center flex-direction-column"
       style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
-      <Navbar />
       <div className="sidebar-and-notes-container flex-center">
         <Sidebar />
 
@@ -57,6 +57,8 @@ export const NotePage = () => {
           setPriorityState={setPriorityState}
           pinnedNotes={pinnedNotes}
           setPinnedNotes={setPinnedNotes}
+          labelinput={labelinput}
+          setlabelInput={setlabelInput}
         />
       </div>
       <div className="title-notelist-container flex-center flex-direction-column">
@@ -86,6 +88,9 @@ export const NotePage = () => {
                 EditItemId={EditItemId}
                 priorityState={priorityState}
                 setPriorityState={setPriorityState}
+                setlabelInput={setlabelInput}
+                isOpen={isOpen}
+                setisOpen={setisOpen}
               />
             );
           })}

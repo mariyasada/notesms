@@ -33,6 +33,15 @@
   margin: 2rem 24rem;
   font-weight: bolder;
 }
+.theme-icon-home-page {
+  margin: 3rem 0 0 6rem;
+  color: var(--primary-color-dark);
+  font-size: 2rem;
+}
+.heading-theme-icon-container {
+  width: 100%;
+  justify-content: center;
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   body {
     font-size: 90%;
@@ -53,14 +62,15 @@
   .image-of-homepage {
     object-fit: contain;
     width: 70%;
-    margin: -24rem 0 0 -3rem;
+    margin: -12rem 0 0 -2rem;
+    /* margin: -22rem 0 0 -3rem; */
   }
   .quote-of-app {
     font-size: 3.5rem;
     width: 60%;
-    margin: -27rem 0 0 -3rem;
+    margin: -23rem 0 0 -3rem;
   }
   .btn-container {
-    margin-left: 4rem;
+    margin: 0 0 2rem 4rem;
   }
 }

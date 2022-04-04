@@ -11,11 +11,6 @@ export const HomePage = () => {
       className="HomePage-container flex-center flex-direction-column "
       style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
     >
-      <div className="heading-of-notes">
-        <h1 className="heading">
-          <span className="name-of-app">MS</span> Notes
-        </h1>
-      </div>
       <div
         className="image-quote-container flex-center"
         style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
