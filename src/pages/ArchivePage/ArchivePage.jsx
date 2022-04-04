@@ -17,7 +17,7 @@ export const ArchivePage = () => {
           : "Archivenote-page-container flex-center"
       }
     >
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="sidebar-container">
         <Sidebar />
       </div>

@@ -19,7 +19,7 @@
   .footer {
     position: fixed;
     bottom: 0;
-    width: 103%;
+    width: 100%;
     flex-direction: column;
   }
 }
