@@ -7,7 +7,7 @@
   background-color: white;
   box-shadow: 3px 3px 4px var(--light-stone);
   justify-content: space-between;
-  z-index: 90;
+  z-index: 12;
 }
 .Header-container-dark {
   background-color: #202020;

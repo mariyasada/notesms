@@ -76,21 +76,14 @@ export const NotePage = () => {
                 key={note.id}
                 pinnedNotes={pinnedNotes}
                 setPinnedNotes={setPinnedNotes}
-                forminput={forminput}
                 setFormInput={setFormInput}
-                formtextArea={formtextArea}
                 setFormTextArea={setFormTextArea}
-                listColor={listColor}
                 setListColor={setListColor}
-                tagState={tagState}
                 setTagState={setTagState}
                 setEditItemId={setEditItemId}
                 EditItemId={EditItemId}
-                priorityState={priorityState}
                 setPriorityState={setPriorityState}
                 setlabelInput={setlabelInput}
-                isOpen={isOpen}
-                setisOpen={setisOpen}
               />
             );
           })}

@@ -6,24 +6,18 @@ import { useNotes } from "../../Context/note-context";
 import "./NoteCard.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 export const NoteCard = ({
   Note,
   pinnedNotes,
   setPinnedNotes,
-  forminput,
   setFormInput,
-  formtextArea,
   setFormTextArea,
-  listColor,
   setListColor,
-  tagState,
   setTagState,
   setEditItemId,
-  priorityState,
   setPriorityState,
-  isOpen,
-  setisOpen,
 }) => {
   const [isPinned, setIsPinned] = useState(false);
   const { isEditing, setEditing, allNotes, setallNotes } = useNotes();
