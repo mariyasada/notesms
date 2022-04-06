@@ -10,9 +10,10 @@ export const ArchiveNotesReducer =(state,action)=>{
         
         case "ADD_TO_ARCHIVE": 
                     (async () => {
-                    await axios.post(
-                    `https://my-json-server.typicode.com/mariyasada/jsonAPI/archive,${action.payload}}`
+                  const {data}  = await axios.post(
+                    "https://my-json-server.typicode.com/mariyasada/jsonAPI/archive", action.payload
                     );
+                    console.log(data);
                     
                 })();                
            return {...state, ArChiveList:[...state.ArChiveList,{...action.payload}]}

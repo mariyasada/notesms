@@ -10,7 +10,7 @@ export const TrashNotesReducer=(state,action)=>{
         case "ADD_TO_TRASH": 
         (async () => {
                     await axios.post(
-                    `https://my-json-server.typicode.com/mariyasada/jsonAPI/trash,${action.payload}}`
+                    "https://my-json-server.typicode.com/mariyasada/jsonAPI/trash", action.payload
                     );
                     
                 })();          
