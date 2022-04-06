@@ -17,7 +17,7 @@
 * [Archive Page](https://mehak-store.netlify.app/cart)
 * pinned notes 
 * Filter and Sort Notes
-* Error Page
+* [Error Page](https://ms-notes.netlify.app/notepag)
 * Dark Mode( Toggle Theme)
 
 React JS -
