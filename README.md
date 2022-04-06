@@ -18,6 +18,7 @@
 * pinned notes 
 * Filter and Sort Notes
 * Error Page
+* Dark Mode( Toggle Theme)
 
 React JS -
 
@@ -29,4 +30,9 @@ React JS -
 [MS-Notes](https://ms-notes.netlify.app/)
 
 ## Video
+
+https://user-images.githubusercontent.com/77275100/161907563-4ace2c5b-36bc-4983-a718-ef2d1e4e0fb5.mp4
+
+## Screen Shot of Note page in Dark Theme
+![dark theme](https://user-images.githubusercontent.com/77275100/161907697-22423624-f16f-44b5-b2d8-fb2b1ee97bbb.PNG)
 
