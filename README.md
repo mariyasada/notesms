@@ -8,6 +8,7 @@
 
 ## API which is used
 * [API](https://my-json-server.typicode.com/mariyasada/jsonAPI)
+* [GitHub Folder](https://github.com/mariyasada/jsonAPI)
 
 ## Functionalities (For Now)
 * Rich Text Editor
