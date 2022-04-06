@@ -24,7 +24,7 @@ export const ArchivePage = () => {
         <h2 className="text-size-md heading-archive">Archive Notes</h2>
         <div className="archivenotes-container flex-center">
           {ArChiveList.map((note) => {
-            return <ArchiveCard Note={note} />;
+            return <ArchiveCard Note={note} key={note.id} />;
           })}
         </div>
       </div>
