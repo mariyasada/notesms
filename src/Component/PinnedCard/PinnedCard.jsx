@@ -1,8 +1,13 @@
 import React from "react";
-import { BsPinFill } from "react-icons/bs";
+import { BsPinFill, BsTrash } from "react-icons/bs";
+import { useNotes } from "../../Context/note-context";
 import "../NoteCard/NoteCard.css";
 
 export const PinnedCard = ({ Note }) => {
+  const { pinnedNotes, setPinnedNotes } = useNotes();
+  const removefrompinnedNotes = (Note) => {
+    setPinnedNotes(pinnedNotes.filter((item) => item.id !== Note.id));
+  };
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -29,6 +34,13 @@ export const PinnedCard = ({ Note }) => {
       </div>
       <div className="time-date-and-icon-container flex-center">
         <p className="time-and-date-div"> Created on {Note.date}</p>
+        <div className="icons-of-notes-container flex-center">
+          <BsTrash
+            title="Delete"
+            className="notes-icon-notecard"
+            onClick={() => removefrompinnedNotes(Note)}
+          />
+        </div>
       </div>
     </div>
   );

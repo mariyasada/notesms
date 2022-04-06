@@ -23,8 +23,8 @@
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .colors-selector-container {
-    top: 46rem;
-    left: 17.6rem;
+    top: 47.5rem;
+    left: 13.6rem;
     z-index: 4;
     height: auto;
     width: 14rem;

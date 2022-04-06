@@ -24,8 +24,14 @@ import { functionList,composeFunction } from "./Reducer/utils/utils";
      useEffect(()=>{
          (async()=>{
 
+            try{
                 const {data} = await axios.get("https://my-json-server.typicode.com/mariyasada/jsonAPI/notes");
                  setallNotes(data);
+            }
+            catch(err)
+            {
+                console.log("can't get data",err)
+                       }           
                 
          })();
      },[])
