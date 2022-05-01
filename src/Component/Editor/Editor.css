@@ -41,3 +41,6 @@
 .ql-snow.ql-toolbar button .ql-list {
   margin-left: 20rem;
 }
+.ql-container {
+  position: static;
+}

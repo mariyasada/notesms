@@ -38,6 +38,8 @@
   width: 100%;
   font-size: 2rem;
   gap: 10px;
+  position: relative;
+  z-index: 1;
 }
 .title-of-note {
   width: 100%;

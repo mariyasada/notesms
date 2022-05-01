@@ -4,9 +4,9 @@
   background-color: white;
   flex-wrap: wrap;
   box-shadow: 3px 3px 4px var(--light-stone);
-  position: fixed;
+  position: absolute;
   left: 61rem;
-  top: 39rem;
+  top: 38rem;
   align-items: flex-start;
   padding: 5px;
 }
