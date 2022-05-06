@@ -1,7 +1,7 @@
 .search-input-center {
   width: 48%;
   height: 4rem;
-  margin: 11rem 0 0 20rem;
+  margin: 15rem 0 0 20rem;
   border: 2px solid var(--light-stone);
 }
 .search-icon {

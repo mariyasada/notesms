@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BsSearch, BsCheckCircle, BsPlusSquare } from "react-icons/bs";
 import { IoColorPalette, IoCloseCircle } from "react-icons/io5";
-import { FaBold } from "react-icons/fa";
 import { ColorPalette } from "../../Component/index";
 import "./NoteListpage.css";
 import "../colorPalette/colorPalette.css";
@@ -13,41 +12,37 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { modules, formats } from "../Editor/Constants";
 import "../Editor/Editor.css";
+import { initialDataOfNote } from "../constants/note-constants";
+import toast from "react-hot-toast";
 
 export const NoteListPage = ({
   isOpen,
   setisOpen,
-  forminput,
-  setFormInput,
   formtextArea,
   setFormTextArea,
-  listColor,
-  setListColor,
-  tagState,
-  setTagState,
-  priorityState,
-  setPriorityState,
-  pinnedNotes,
-  setPinnedNotes,
-  setlabelInput,
-  labelinput,
+  noteData,
+  setNoteData,
 }) => {
   const {
-    allNotes,
     setallNotes,
     isEditing,
     setEditing,
-    setEditItemId,
     EditItemId,
-    state,
     dispatch,
+    setPinnedNotes,
   } = useNotes();
 
   const { theme, setTheme } = useTheme();
   const [expand, setExpand] = useState(false);
 
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setNoteData((prevData) => ({ ...prevData, [name]: value }));
+    console.log(noteData);
+  };
+
   const addNote = async () => {
-    if (forminput === "" || formtextArea == "") {
+    if (noteData.title === "" || formtextArea == "") {
       alert("please fill the data in inputs");
     } else {
       try {
@@ -55,23 +50,17 @@ export const NoteListPage = ({
           "https://my-json-server.typicode.com/mariyasada/jsonAPI/notes",
           {
             id: uuidv4(),
-            title: forminput,
+            ...noteData,
             content: formtextArea,
-            color: listColor,
             date: new Date().toLocaleDateString(),
-            tag: tagState,
-            priority: priorityState,
-            label: labelinput,
           }
         );
-        console.log(data, "adding");
-
+        console.log(data, "adding note");
         setallNotes((prevdata) => [...prevdata, data]);
-        setFormInput("");
+        toast("successfully note added", { icon: "✔" });
+        setNoteData(initialDataOfNote);
         setFormTextArea("");
         setisOpen(false);
-        setListColor("");
-        setlabelInput("");
         setExpand(false);
       } catch (err) {
         console.error("something went wrong", err);
@@ -79,32 +68,27 @@ export const NoteListPage = ({
     }
   };
   const cancleNoteInput = () => {
-    setFormInput("");
+    setNoteData(initialDataOfNote);
     setFormTextArea("");
     setExpand(false);
     setisOpen(false);
   };
 
   const updateNote = async () => {
-    console.log(EditItemId);
-    if (forminput === "" || formtextArea == "") {
+    if (noteData.title === "" || formtextArea == "") {
       alert("please fill the data in inputs");
     } else {
       try {
         const noteObj = {
-          title: forminput,
+          ...noteData,
           content: formtextArea,
-          color: listColor,
           date: new Date().toLocaleDateString(),
-          tag: tagState,
-          priority: priorityState,
-          label: labelinput,
         };
         const { data } = await axios.put(
           `https://my-json-server.typicode.com/mariyasada/jsonAPI/notes/${EditItemId}`,
           noteObj
         );
-        console.log(data, "updated data");
+        toast("successfully note updateed", { icon: "✔" });
         setallNotes((prevdata) =>
           prevdata.map((note) =>
             note.id === EditItemId ? { ...note, ...noteObj } : note
@@ -115,12 +99,11 @@ export const NoteListPage = ({
             note.id === EditItemId ? { ...note, ...noteObj } : note
           )
         );
-        setFormInput("");
+
         setFormTextArea("");
         setisOpen(false);
         setEditing(!isEditing);
-        setListColor("");
-        setlabelInput("");
+        setNoteData(initialDataOfNote);
         setExpand(false);
       } catch (err) {
         console.error("something went wrong", err);
@@ -129,7 +112,6 @@ export const NoteListPage = ({
   };
   const handleInputChange = (e) => {
     setFormTextArea(e);
-    console.log(formtextArea);
   };
 
   const handleExpandandColorPalette = () => {
@@ -163,7 +145,7 @@ export const NoteListPage = ({
             ? "add-notes-container-dark add-notes-container border-round flex-center flex-direction-column"
             : "add-notes-container border-round flex-center flex-direction-column"
         }
-        style={{ backgroundColor: listColor }}
+        style={{ backgroundColor: noteData.color }}
       >
         <div className="input-with-pin-icon-container flex-center">
           <input
@@ -175,8 +157,9 @@ export const NoteListPage = ({
                 : "title-of-note border-outline-none"
             }
             name="title"
-            value={forminput}
-            onChange={(e) => setFormInput(e.target.value)}
+            id="title"
+            value={noteData.title}
+            onChange={(e) => changeHandler(e)}
             onClick={() => setExpand(true)}
             required
           />
@@ -203,8 +186,10 @@ export const NoteListPage = ({
             </label>
             <select
               className="tag"
-              onChange={(e) => setTagState(e.target.value)}
-              value={tagState}
+              name="tag"
+              id="tag"
+              onChange={(e) => changeHandler(e)}
+              value={noteData.tag}
             >
               <option value="Work">Work</option>
               <option value="Home">Home</option>
@@ -219,8 +204,10 @@ export const NoteListPage = ({
             </label>
             <select
               className="priority"
-              onChange={(e) => setPriorityState(e.target.value)}
-              value={priorityState}
+              name="priority"
+              id="priority"
+              onChange={(e) => changeHandler(e)}
+              value={noteData.priority}
             >
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
@@ -235,9 +222,10 @@ export const NoteListPage = ({
               Label:
               <input
                 type="text"
+                name="label"
                 className="label-input"
-                value={labelinput}
-                onChange={(e) => setlabelInput(e.target.value)}
+                value={noteData.label}
+                onChange={(e) => changeHandler(e)}
               />
             </label>
           </div>
@@ -263,8 +251,7 @@ export const NoteListPage = ({
       {isOpen && (
         <ColorPalette
           className="colors-selector-container flex-center border-round"
-          listColor={listColor}
-          setListColor={setListColor}
+          setNoteData={setNoteData}
         />
       )}
     </div>

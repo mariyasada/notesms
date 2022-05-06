@@ -4,6 +4,7 @@ import { FaTrashRestoreAlt } from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
 import { useArchiveNote } from "../../Context/archive-note-context";
 import { useNotes } from "../../Context/note-context";
+import toast from "react-hot-toast";
 
 export const DeleteCard = ({ Note }) => {
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
@@ -13,6 +14,7 @@ export const DeleteCard = ({ Note }) => {
   const RestoreNotesFromTrash = (Note) => {
     trashListDispatch({ type: "REMOVE_FROM_TRASH", payload: Note });
     setallNotes((prevdata) => [...prevdata, Note]);
+    toast("successfully restored", { icon: "✔" });
   };
 
   return (

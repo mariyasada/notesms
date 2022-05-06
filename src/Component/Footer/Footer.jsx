@@ -8,13 +8,25 @@ export const Footer = () => {
   return (
     <div
       className="footer flex-center"
-      style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
+      style={{
+        backgroundColor: theme === "light" ? "#202020" : "white",
+      }}
     >
-      <div className="footer-heading">Made by Mariya Sada | © | 2022</div>
+      <div
+        className={
+          theme === "light" ? "footer-heading nav-icon-dark" : "footer-heading"
+        }
+      >
+        Made by Mariya Sada | © | 2022
+      </div>
       <ul className="nav-items">
         <li className="nav-item">
           <a href="https://github.com/mariyasada">
-            <span className="nav-icon">
+            <span
+              className={
+                theme === "light" ? "nav-icon nav-icon-dark" : "nav-icon"
+              }
+            >
               <BsGithub title="Github" />
             </span>
           </a>
@@ -22,7 +34,11 @@ export const Footer = () => {
 
         <li className="nav-item">
           <a href="https://twitter.com/sada_mariya">
-            <span className="nav-icon">
+            <span
+              className={
+                theme === "light" ? "nav-icon nav-icon-dark" : "nav-icon"
+              }
+            >
               <BsTwitter title="Twitter" />
             </span>
           </a>
@@ -30,7 +46,11 @@ export const Footer = () => {
 
         <li className="nav-item">
           <a href="https://www.linkedin.com/in/mariya-sada-1b6443139">
-            <span className="nav-icon">
+            <span
+              className={
+                theme === "light" ? "nav-icon nav-icon-dark" : "nav-icon"
+              }
+            >
               <BsLinkedin title="LinkedIn" />
             </span>
           </a>

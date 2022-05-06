@@ -1,3 +1,6 @@
+.wrapper {
+  height: 100vh;
+}
 .error-image-container {
   height: 50rem;
   width: 60%;

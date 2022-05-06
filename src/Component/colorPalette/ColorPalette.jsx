@@ -1,6 +1,6 @@
 import React from "react";
 import "./colorPalette.css";
-import { ToastContainer, toast } from "react-toastify";
+import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "../../Context/theme-context";
 
@@ -21,16 +21,13 @@ const colors = [
   "#93c5fd",
 ];
 
-export const ColorPalette = ({ listColor, setListColor }) => {
+export const ColorPalette = ({ setNoteData }) => {
   const { theme, setTheme } = useTheme();
   const addColor = (color) => {
-    setListColor(color);
-    notify();
+    setNoteData((prevData) => ({ ...prevData, color }));
+    toast("color successfully added", { icon: "✔" });
   };
 
-  const notify = () => {
-    toast.dark("color added");
-  };
   return (
     <div
       className="colors-selector-container flex-center border-round "
@@ -48,7 +45,6 @@ export const ColorPalette = ({ listColor, setListColor }) => {
           </ul>
         );
       })}
-      <ToastContainer autoClose={4000} />
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-export const ArchiveNotesReducer =(state,action)=>{
-    console.log(state,action,"from reducer");
+export const ArchiveNotesReducer =(state,action)=>{   
     switch (action.type) {
 
         case "LOAD_ARCHIVE_DATA":
