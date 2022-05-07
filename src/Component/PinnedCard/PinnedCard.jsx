@@ -2,13 +2,10 @@ import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { useNotes } from "../../Context/note-context";
 import "../NoteCard/NoteCard.css";
+import toast from "react-hot-toast";
 
 export const PinnedCard = ({ Note }) => {
-  const { pinnedNotes, setPinnedNotes } = useNotes();
-  const removefrompinnedNotes = (Note) => {
-    setPinnedNotes(pinnedNotes.filter((item) => item.id !== Note.id));
-    toast("Removed from Pinned Notes", { icon: "✔" });
-  };
+  const { pinnedNotes, setPinnedNotes, removefrompinnedNotes } = useNotes();
   return (
     <div
       className="notecard-container-for-archive flex-center flex-direction-column border-round"
@@ -38,7 +35,10 @@ export const PinnedCard = ({ Note }) => {
           <BsTrash
             title="Delete"
             className="notes-icon-notecard"
-            onClick={() => removefrompinnedNotes(Note)}
+            onClick={() => {
+              removefrompinnedNotes(Note),
+                toast("Removed from Pinned Notes", { icon: "✔" });
+            }}
           />
         </div>
       </div>

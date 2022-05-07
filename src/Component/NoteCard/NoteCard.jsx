@@ -18,6 +18,7 @@ export const NoteCard = ({
     setallNotes,
     pinnedNotes,
     setPinnedNotes,
+    removefrompinnedNotes,
   } = useNotes();
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
     useArchiveNote();
@@ -25,18 +26,11 @@ export const NoteCard = ({
   const addPinnedNote = (note) => {
     const newItem = pinnedNotes.find((item) => item.id === note.id);
     if (newItem) {
-      toast("Note already has pinned", { icon: "✔" });
+      toast("Note already has been pinned", { icon: "✔" });
     } else {
       setPinnedNotes((prevdata) => [...prevdata, note]);
       toast("added to pinned note", { icon: "✔" });
     }
-  };
-
-  const removePinnedNotes = (note) => {
-    const newpinnedNote = pinnedNotes.filter(
-      (pinnedNote) => pinnedNote.id !== note.id
-    );
-    setPinnedNotes(newpinnedNote);
   };
 
   const EditNoteHandler = (note) => {
@@ -51,7 +45,7 @@ export const NoteCard = ({
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
     toast("successfully archived", { icon: "✔" });
-    removePinnedNotes(Note);
+    removefrompinnedNotes(Note);
   };
 
   const removefromNotesAddToTrash = (Note) => {
@@ -59,7 +53,7 @@ export const NoteCard = ({
     const newItemofNotes = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItemofNotes);
     toast("successfully note added to trash", { icon: "✔" });
-    removePinnedNotes(Note);
+    removefrompinnedNotes(Note);
   };
 
   return (

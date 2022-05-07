@@ -28,7 +28,6 @@
 }
 .sidebar-item-with-icon:hover {
   background-color: var(--primary-color);
-  border-radius: 5px;
   color: var(--white-color);
   cursor: pointer;
 }

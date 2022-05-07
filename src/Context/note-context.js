@@ -19,7 +19,11 @@ import { functionList,composeFunction } from "./Reducer/utils/utils";
       const [EditItemId,setEditItemId]=useState(null);  
 
    const [state,dispatch]=useReducer (FilterReducer,initialState);  
-   const filterData = composeFunction(state,functionList)([...allNotes])
+   const filterData = composeFunction(state,functionList)([...allNotes]);
+
+    const removefrompinnedNotes = (Note) => {
+    setPinnedNotes(pinnedNotes.filter((item) => item.id !== Note.id));
+  };
    
      useEffect(()=>{
          (async()=>{
@@ -36,7 +40,7 @@ import { functionList,composeFunction } from "./Reducer/utils/utils";
          })();
      },[])
 
-     return <NoteContext.Provider value={{allNotes,setallNotes,pinnedNotes,setPinnedNotes,isEditing, setEditing,EditItemId,setEditItemId,state,dispatch,filterData}}>{children}</NoteContext.Provider>
+     return <NoteContext.Provider value={{allNotes,setallNotes,pinnedNotes,setPinnedNotes,isEditing, setEditing,EditItemId,setEditItemId,state,dispatch,filterData,removefrompinnedNotes}}>{children}</NoteContext.Provider>
  }
  const useNotes =()=>useContext(NoteContext);
 
