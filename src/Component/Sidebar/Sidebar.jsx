@@ -21,8 +21,8 @@ export const Sidebar = () => {
   };
 
   const getActiveLinkStyle = ({ isActive }) => ({
-    color: isActive ? "#e7992c" : "",
-    background: isActive ? "#3d6d79" : "",
+    color: isActive ? "#3d6d79" : "",
+    background: isActive ? "#f3af51" : "",
   });
   return (
     <div

@@ -1,16 +1,21 @@
 .notecard-container {
-  width: 27rem;
+  width: fit-content;
   height: auto;
   box-shadow: 2px 3px 4px var(--light-stone);
   gap: 10px;
 }
 .title-of-notes-container {
-  width: 100%;
-  margin: 2rem 0 0 -1rem;
-  font-size: 1.8rem;
-  gap: 7.7rem;
-  justify-content: space-evenly;
+  width: 20rem;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  justify-content: space-between;
   font-weight: bold;
+}
+.title-card {
+  width: 80%;
+  margin-left: -8px;
+  height: auto;
+  text-align: left;
 }
 
 .tag-of-card,
@@ -39,6 +44,8 @@
   margin: 0 2rem 1rem 0;
 }
 .notes-icon-notecard {
+  width: fit-content;
+  margin-right: 2px;
   color: var(--dark-stone);
   cursor: pointer;
 }

@@ -44,6 +44,7 @@ li {
 
 :root {
   --primary-color: #3d6d79;
+  --primary-color-light: #f3af51;
   --secondary-color: #d69d66;
   --gray-color: #e0e2ee;
   --golden-color: #e7992c;

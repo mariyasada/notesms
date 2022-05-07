@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { BiArchiveIn, BiTrash, BiEdit } from "react-icons/bi";
 import { BsPinFill, BsPin } from "react-icons/bs";
-import { useArchiveNote } from "../../Context/archive-note-context";
-import { useNotes } from "../../Context/note-context";
+import { useArchiveNote, useNotes } from "../../Context/combineContext";
 import "./NoteCard.css";
 import toast from "react-hot-toast";
 
@@ -12,7 +11,6 @@ export const NoteCard = ({
   setEditItemId,
   setNoteData,
 }) => {
-  const [isPinned, setIsPinned] = useState(false);
   const {
     isEditing,
     setEditing,
@@ -27,9 +25,8 @@ export const NoteCard = ({
   const addPinnedNote = (note) => {
     const newItem = pinnedNotes.find((item) => item.id === note.id);
     if (newItem) {
-      toast("note already pinned");
+      toast("Note already has pinned", { icon: "✔" });
     } else {
-      setIsPinned(!isPinned);
       setPinnedNotes((prevdata) => [...prevdata, note]);
       toast("added to pinned note", { icon: "✔" });
     }
@@ -40,7 +37,6 @@ export const NoteCard = ({
       (pinnedNote) => pinnedNote.id !== note.id
     );
     setPinnedNotes(newpinnedNote);
-    setIsPinned(!isPinned);
   };
 
   const EditNoteHandler = (note) => {
@@ -73,14 +69,10 @@ export const NoteCard = ({
     >
       <div className="title-of-notes-container flex-center">
         <p className="title-card">{Note.title}</p>
-        {isPinned ? (
-          <BsPinFill
-            className="notes-icon-notecard"
-            onClick={() => removePinnedNotes(Note)}
-          />
-        ) : (
-          <BsPin onClick={() => addPinnedNote(Note)} />
-        )}
+        <BsPinFill
+          onClick={() => addPinnedNote(Note)}
+          className="notes-icon-notecard"
+        />
       </div>
       <div className="description-of-notes-container flex-center">
         <div

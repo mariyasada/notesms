@@ -1,5 +1,5 @@
 import React from "react";
-import { BsPinFill, BsTrash } from "react-icons/bs";
+import { BsTrash } from "react-icons/bs";
 import { useNotes } from "../../Context/note-context";
 import "../NoteCard/NoteCard.css";
 
@@ -7,15 +7,15 @@ export const PinnedCard = ({ Note }) => {
   const { pinnedNotes, setPinnedNotes } = useNotes();
   const removefrompinnedNotes = (Note) => {
     setPinnedNotes(pinnedNotes.filter((item) => item.id !== Note.id));
+    toast("Removed from Pinned Notes", { icon: "✔" });
   };
   return (
     <div
-      className="notecard-container flex-center flex-direction-column border-round"
+      className="notecard-container-for-archive flex-center flex-direction-column border-round"
       style={{ backgroundColor: Note.color }}
     >
-      <div className="title-of-notes-container flex-center">
+      <div className="title-of-notes-container-archive flex-center">
         <p className="title-card">{Note.title}</p>
-        <BsPinFill className="notes-icon-notecard" />
       </div>
       <div className="description-of-notes-container flex-center">
         <p

@@ -8,8 +8,7 @@ import {
   FilterBar,
 } from "../../Component";
 import { initialDataOfNote } from "../../Component/constants/note-constants";
-import { useNotes } from "../../Context/note-context";
-import { useTheme } from "../../Context/theme-context";
+import { useNotes, useTheme } from "../../Context/combineContext";
 import "./Notepage.css";
 
 export const NotePage = () => {
