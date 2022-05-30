@@ -27,15 +27,25 @@
   padding: 4px;
 }
 
-.description-of-notes-container,
 .tag-of-notes-container {
   width: 100%;
   font-size: 1.4rem;
   margin: 1rem;
 }
+.description-of-notes-container {
+  width: fit-content;
+  align-self: flex-start;
+  font-size: 1.3rem;
+}
 .description-of-notes {
   align-self: flex-start;
   margin-left: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: justify;
 }
 .icons-of-notes-container {
   justify-content: flex-end;
