@@ -2,6 +2,7 @@ import "./App.css";
 import {ArchivePage, DeletedNotePage, HomePage, NotePage, PageNotFound} from "./pages/indexpage"
 import {Routes,Route} from "react-router";
 import { Navbar } from "./Component";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -15,7 +16,11 @@ function App() {
               <Route path="/archivepage" element={<ArchivePage/>}/>
               <Route path="/deletednotepage" element={<DeletedNotePage/>}/>
               <Route path="*" element={<PageNotFound/>}/>
-     </Routes>       
+     </Routes>  
+     <Toaster
+        position="top-right"
+        toastOptions={{ className: "toast-display", duration: 2000 }}
+      />   
     </div>
   );
 }

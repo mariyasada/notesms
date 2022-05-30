@@ -18,7 +18,15 @@ export const DeletedNotePage = () => {
         <Sidebar />
       </div>
       <div className="Delete-heading-note-container flex-center flex-direction-column">
-        <h2 className="text-size-md heading-delete">Deleted Notes</h2>
+        <h2
+          className={
+            theme === "light"
+              ? "text-size-md heading-delete heading-dark"
+              : "text-size-md heading-delete"
+          }
+        >
+          Deleted Notes
+        </h2>
         <div className="Deletenotes-container flex-center">
           {TrashList.map((note) => {
             return <DeleteCard Note={note} key={note.id} />;

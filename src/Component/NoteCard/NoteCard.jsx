@@ -1,57 +1,41 @@
 import React, { useState } from "react";
 import { BiArchiveIn, BiTrash, BiEdit } from "react-icons/bi";
 import { BsPinFill, BsPin } from "react-icons/bs";
-import { useArchiveNote } from "../../Context/archive-note-context";
-import { useNotes } from "../../Context/note-context";
+import { useArchiveNote, useNotes } from "../../Context/combineContext";
 import "./NoteCard.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import toast from "react-hot-toast";
 
 export const NoteCard = ({
   Note,
-  pinnedNotes,
-  setPinnedNotes,
-  setFormInput,
   setFormTextArea,
-  setListColor,
-  setTagState,
   setEditItemId,
-  setPriorityState,
+  setNoteData,
 }) => {
-  const [isPinned, setIsPinned] = useState(false);
-  const { isEditing, setEditing, allNotes, setallNotes } = useNotes();
+  const {
+    isEditing,
+    setEditing,
+    allNotes,
+    setallNotes,
+    pinnedNotes,
+    setPinnedNotes,
+    removefrompinnedNotes,
+  } = useNotes();
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
     useArchiveNote();
 
-  console.log(Note.content, "content");
-
   const addPinnedNote = (note) => {
     const newItem = pinnedNotes.find((item) => item.id === note.id);
-    console.log(newItem, "true");
     if (newItem) {
-      console.log("note already pinned");
+      toast("Note already has been pinned", { icon: "✔" });
     } else {
-      setIsPinned(!isPinned);
       setPinnedNotes((prevdata) => [...prevdata, note]);
+      toast("added to pinned note", { icon: "✔" });
     }
   };
 
-  const removePinnedNotes = (note) => {
-    const newpinnedNote = pinnedNotes.filter(
-      (pinnedNote) => pinnedNote.id !== note.id
-    );
-    setPinnedNotes(newpinnedNote);
-    setIsPinned(!isPinned);
-  };
-
   const EditNoteHandler = (note) => {
-    console.log("clicked", note);
-    setFormInput(note.title);
+    setNoteData({ ...note });
     setFormTextArea(note.content);
-    setListColor(note.color);
-    setTagState(note.tag);
-    setPriorityState(note.priority);
     setEditing(!isEditing);
     setEditItemId(note.id);
   };
@@ -60,20 +44,18 @@ export const NoteCard = ({
     archiveDispatch({ type: "ADD_TO_ARCHIVE", payload: Note });
     const newItem = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItem);
-    notify();
-    removePinnedNotes(Note);
+    toast("successfully archived", { icon: "✔" });
+    removefrompinnedNotes(Note);
   };
 
   const removefromNotesAddToTrash = (Note) => {
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
     const newItemofNotes = allNotes.filter((item) => item.id !== Note.id);
     setallNotes(newItemofNotes);
-    removePinnedNotes(Note);
+    toast("successfully note added to trash", { icon: "✔" });
+    removefrompinnedNotes(Note);
   };
 
-  const notify = () => {
-    toast.dark("Note Archived,go to archived page");
-  };
   return (
     <div
       className="notecard-container flex-center flex-direction-column border-round"
@@ -81,14 +63,10 @@ export const NoteCard = ({
     >
       <div className="title-of-notes-container flex-center">
         <p className="title-card">{Note.title}</p>
-        {isPinned ? (
-          <BsPinFill
-            className="notes-icon-notecard"
-            onClick={() => removePinnedNotes(Note)}
-          />
-        ) : (
-          <BsPin onClick={() => addPinnedNote(Note)} />
-        )}
+        <BsPinFill
+          onClick={() => addPinnedNote(Note)}
+          className="notes-icon-notecard"
+        />
       </div>
       <div className="description-of-notes-container flex-center">
         <div
@@ -136,7 +114,6 @@ export const NoteCard = ({
           />
         </div>
       </div>
-      <ToastContainer autoClose={5000} />
     </div>
   );
 };

@@ -1,0 +1,18 @@
+.notecard-container-for-archive {
+  width: 27rem;
+  height: auto;
+  box-shadow: 2px 3px 4px var(--light-stone);
+  gap: 10px;
+}
+.title-of-notes-container-archive {
+  width: 28rem;
+  margin: 2rem 0 0 6.4rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.title-card {
+  width: 80%;
+  margin-left: -8px;
+  height: auto;
+  text-align: left;
+}

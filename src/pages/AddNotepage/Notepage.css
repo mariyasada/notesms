@@ -22,7 +22,7 @@
   width: 80%;
   height: auto;
   gap: 12px;
-  margin: -2rem 0 0 22rem;
+  margin: -9rem 0 0 22rem;
   justify-content: flex-start;
 }
 .title-pinned-notelist-container {
@@ -33,6 +33,10 @@
   width: 100%;
   margin: 2rem 0 0 2rem;
   color: var(--primary-color);
+  font-size: 1.8rem;
+}
+.heading-dark {
+  color: var(--secondary-color);
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {

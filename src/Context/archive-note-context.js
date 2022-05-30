@@ -22,7 +22,6 @@ const ArchiveNotesProvider = ({children})=>{
 
             try{
                 const {data} = await axios.get("https://my-json-server.typicode.com/mariyasada/jsonAPI/archive");
-                console.log(data,"archivedata");
                 archiveDispatch({type:"LOAD_ARCHIVE_DATA", payload:data})
             }
             catch(err)
@@ -32,7 +31,6 @@ const ArchiveNotesProvider = ({children})=>{
            
            try{
                 const {data} = await axios.get("https://my-json-server.typicode.com/mariyasada/jsonAPI/trash");
-                console.log(data,"trashadta");
                 trashListDispatch({type:"LOAD_TRASH_DATA", payload:data})
            }
            catch(err)

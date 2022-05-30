@@ -44,3 +44,11 @@
 .ql-container {
   position: static;
 }
+.ql-editor.ql-blank::before {
+  width: 30rem;
+  text-align: center;
+  position: static;
+}
+.editor-of-note {
+  width: 30rem;
+}
