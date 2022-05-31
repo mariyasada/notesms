@@ -69,11 +69,16 @@
   color: var(--dark-stone);
 }
 .label-of-card {
-  /* background-color: beige; */
   padding: 4px;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .notecard-container {
     width: 30rem;
+  }
+  .title-of-notes-container {
+    width: 24.3rem;
+  }
+  .title-card {
+    margin-left: 5%;
   }
 }

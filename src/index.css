@@ -42,6 +42,9 @@ li {
   outline: none;
 }
 
+.input-textbox:focus {
+  border: 1px solid var(--primary-color);
+}
 :root {
   --primary-color: #3d6d79;
   --primary-color-light: #f3af51;
