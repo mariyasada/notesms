@@ -17,6 +17,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-console.log(apiKey,  process.env.REACT_APP_APIKEY);
+console.log(process.env.REACT_APP_APIKEY);
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
