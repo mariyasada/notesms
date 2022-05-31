@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../Hamburger/Hamburger.css";
 import "../Sidebar/Sidebar.css";
 import { useTheme } from "../../Context/theme-context";
@@ -8,9 +8,10 @@ import { FilterBar } from "../FilterBox/FilterBar";
 
 export const Hamburger = () => {
   const { theme, setTheme } = useTheme();
-  const { userData, logOut } = useAuth();
+  const { userData, logOutHandler } = useAuth();
   const [isLight, setIsLight] = useState(false);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const themeClickHandler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -45,7 +46,7 @@ export const Hamburger = () => {
         )}
 
         {userData ? (
-          <Link to="/" className="hamburger-menu-item" onClick={logOut}>
+          <Link to="/" className="hamburger-menu-item" onClick={logOutHandler}>
             Logout
           </Link>
         ) : (
@@ -53,9 +54,11 @@ export const Hamburger = () => {
             Login
           </Link>
         )}
-        <div className="filters">
-          <FilterBar />
-        </div>
+        {pathname === "/notepage" && (
+          <div className="filters">
+            <FilterBar />
+          </div>
+        )}
       </ul>
     </div>
   );
