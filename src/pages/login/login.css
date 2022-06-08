@@ -1,0 +1,123 @@
+.container {
+  height: 100%;
+  width: 100vw;
+  margin-top: 7rem;
+  padding: 4rem;
+}
+.login-container {
+  width: 45rem;
+  height: auto;
+  box-shadow: 3px 3px 6px var(--light-stone);
+  margin: 5rem auto;
+  position: relative;
+  background-color: var(--white-color);
+  padding: 2rem;
+}
+
+form {
+  padding: 2rem;
+}
+.login-container .label-input-container {
+  width: 100%;
+  justify-content: center;
+}
+.heading-page {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+.label-for-login {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 2rem 0 1rem 0.2rem;
+  align-self: flex-start;
+}
+.signup-label {
+  margin: 2rem 0 1rem 6rem;
+}
+.input-textbox {
+  width: 30rem;
+  min-width: 25rem;
+  border-radius: 7px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+.remeber-and-forgotpasword-container {
+  font-size: 1.6rem;
+  gap: 5.7rem;
+  margin: 8px;
+  color: var(--primary-color);
+}
+.input-rememberme {
+  margin-right: 5px;
+}
+.forgotpassword-text,
+.signup-link {
+  color: var(--primary-color-medium);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.link {
+  color: Var(--primary-color-dark);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 6rem;
+}
+.btn.login-btn,
+.btn.login-btn-outline {
+  background-color: var(--secondary-color);
+  width: 29rem;
+  min-width: 25rem;
+  margin: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--white-color);
+}
+
+.btn.login-btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-dark-color);
+}
+.new-user-link-container {
+  justify-content: center;
+  font-size: 1.7rem;
+  gap: 3rem;
+  margin: 1rem 0 2rem 0;
+  color: var(--primary-color);
+}
+.show-hide-toggle-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 23rem;
+  right: 10rem;
+  justify-content: center;
+}
+.btn.login-btn:hover {
+  border: none;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
+  .login-container {
+    width: 33rem;
+    margin-left: -2rem;
+  }
+  .input-textbox {
+    width: 20rem;
+  }
+  .label-for-login {
+    margin-left: 2rem;
+  }
+  .signup-label {
+    margin-left: 2rem;
+  }
+  .remeber-and-forgotpasword-container {
+    gap: 3rem;
+    font-size: 1.5rem;
+  }
+  .show-hide-toggle-icon {
+    right: 6rem;
+  }
+}

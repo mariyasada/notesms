@@ -23,11 +23,11 @@ export const HomePage = () => {
           />
         </div>
         <div className="quote-of-app">
-          <p className="quote">
+          <p className={theme === "light" ? "quote quote-dark" : "quote"}>
             Organized your day by saving your thoughts with us.
           </p>
           <span className="btn-container flex-center">
-            <Link to="/notepage">
+            <Link to="/login">
               <button className="btn btn-primary-first border-round">
                 TRY MS NOTES
               </button>

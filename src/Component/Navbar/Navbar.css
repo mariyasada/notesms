@@ -7,11 +7,11 @@
   background-color: white;
   box-shadow: 3px 3px 4px var(--light-stone);
   justify-content: space-between;
-  z-index: 12;
+  z-index: 20;
 }
 .Header-container-dark {
   background-color: #202020;
-  color: var(-- --golden-color);
+  color: var(--golden-color);
   width: 100%;
   position: fixed;
   top: 0;
@@ -19,6 +19,7 @@
   right: 0;
   box-shadow: 3px 3px 4px var(--light-stone);
   justify-content: space-between;
+  z-index: 21;
 }
 .heading-in-note-page {
   font-size: 3rem;
@@ -34,10 +35,16 @@
   display: none;
 }
 .theme-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-right: 1rem;
   color: var(--dark-cyan);
   cursor: pointer;
+}
+.gap-2 {
+  width: 10%;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 2rem;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
   .Header-container {
@@ -55,7 +62,6 @@
     margin: auto;
   }
   .theme-icon {
-    margin-right: 2rem;
-    justify-self: flex-end;
+    display: none;
   }
 }

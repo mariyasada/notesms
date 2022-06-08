@@ -50,15 +50,16 @@ export const FilterBar = () => {
           </label>
         </li>
         <p className="filter-priority flex-center">Priority:</p>
-        {PriorityFilters.map((priority) => {
+        {PriorityFilters.map((priority, index) => {
           return (
-            <div className="priority-container flex-center" key={priority.id}>
+            <div className="priority-container flex-center" key={index}>
               <li className="filter-list-item flex-center">
-                <label htmlFor={priority}>
+                <label htmlFor={priority} className="flex-center">
                   <input
                     type="checkbox"
                     name="ragio-grp"
                     value={priority}
+                    id={priority}
                     onChange={(event) => PriorityHandler(event)}
                     checked={state.sortByPriority.includes(priority)}
                   />
@@ -69,11 +70,11 @@ export const FilterBar = () => {
           );
         })}
         <p className="filter-tags flex-center">Tags:</p>
-        {tagFilters.map((tagname) => {
+        {tagFilters.map((tagname, index) => {
           return (
             <div
               className="tags-container flex-center flex-direction-column"
-              key={tagname.id}
+              key={index}
             >
               <li className="filter-list-item flex-center">
                 <label htmlFor={tagname}>

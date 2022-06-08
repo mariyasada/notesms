@@ -1,12 +1,13 @@
 .sidebar-and-notes-container {
   width: 100vw;
   height: 56rem;
+  min-height: 100vh;
 }
 .note-page-container {
   max-width: 100vw;
 }
 .notelist-container {
-  width: inherit;
+  width: 100%;
   gap: 10px;
   margin-left: 2.5rem;
   flex-wrap: wrap;
@@ -22,7 +23,7 @@
   width: 80%;
   height: auto;
   gap: 12px;
-  margin: -2rem 0 0 22rem;
+  margin: -9rem 0 0 22rem;
   justify-content: flex-start;
 }
 .title-pinned-notelist-container {
@@ -33,6 +34,10 @@
   width: 100%;
   margin: 2rem 0 0 2rem;
   color: var(--primary-color);
+  font-size: 1.8rem;
+}
+.heading-dark {
+  color: var(--secondary-color);
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -43,10 +48,23 @@
     overflow-y: scroll;
   }
   .notelist-container {
-    margin: 2rem 0 0 -19rem;
+    margin: 2rem 0 0 3rem;
+    width: 100vw;
   }
   .heading-others,
   .heading-Pinned {
     margin-left: 3rem;
+  }
+  .title-notelist-container,
+  .title-pinned-notelist-container {
+    margin-left: 0rem;
+    width: 100vw;
+    height: 80vh;
+  }
+  .title-notelist-container {
+    margin-top: -9rem;
+  }
+  .title-pinned-notelist-container {
+    margin-top: 29rem;
   }
 }

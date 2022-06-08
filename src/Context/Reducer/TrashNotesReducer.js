@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const TrashNotesReducer=(state,action)=>{
-    console.log(state,action)
     switch (action.type) {
 
     case "LOAD_TRASH_DATA":

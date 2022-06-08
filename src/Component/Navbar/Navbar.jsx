@@ -1,19 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../pages/Home/Home";
 import "./Navbar.css";
 import { useState } from "react";
-import { FiMenu, FiSun } from "react-icons/fi";
+import { FiMenu, FiSun, FiLogOut } from "react-icons/fi";
 import { GiCancel } from "react-icons/gi";
-import { FaMoon, FaRegSun } from "react-icons/fa";
+import { FaMoon, FaRegSun, FaUserAlt } from "react-icons/fa";
 import "../Hamburger/Hamburger.css";
 import { Hamburger } from "../Hamburger/Hamburger";
 import { useTheme } from "../../Context/theme-context";
+import { useAuth } from "../../Context/auth-context";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isLight, setIsLight] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { userData, logOutHandler } = useAuth();
+  const navigate = useNavigate();
 
   const themeClickHandler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -46,9 +49,15 @@ export const Navbar = () => {
         </Link>
       </div>
       <div
-        className="theme-icon"
+        className="theme-icon flex-center gap-2"
         style={{ color: theme === "light" ? "white" : "" }}
       >
+        {userData ? (
+          <FiLogOut onClick={logOutHandler} />
+        ) : (
+          <FaUserAlt className="user-alt" onClick={() => navigate("/login")} />
+        )}
+
         {isLight ? (
           <FiSun onClick={themeClickHandler} />
         ) : (

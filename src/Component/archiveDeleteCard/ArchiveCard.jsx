@@ -1,8 +1,9 @@
 import React from "react";
 import "../NoteCard/NoteCard.css";
 import { BiArchiveOut, BiTrash } from "react-icons/bi";
-import { useArchiveNote } from "../../Context/archive-note-context";
-import { useNotes } from "../../Context/note-context";
+import { useArchiveNote, useNotes } from "../../Context/combineContext";
+import toast from "react-hot-toast";
+import "../archiveDeleteCard/archivecard.css";
 
 export const ArchiveCard = ({ Note }) => {
   const { archiveState, archiveDispatch, trashListState, trashListDispatch } =
@@ -15,6 +16,7 @@ export const ArchiveCard = ({ Note }) => {
       payload: Note,
     });
     setallNotes((prevData) => [...prevData, Note]);
+    toast("successfully restore a note", { icon: "✔" });
   };
 
   const addToTrash = (Note) => {
@@ -23,14 +25,15 @@ export const ArchiveCard = ({ Note }) => {
       payload: Note,
     });
     trashListDispatch({ type: "ADD_TO_TRASH", payload: Note });
+    toast("successfully note added to trash", { icon: "✔" });
   };
 
   return (
     <div
-      className="notecard-container flex-center flex-direction-column border-round"
+      className="notecard-container-for-archive flex-center flex-direction-column border-round"
       style={{ backgroundColor: Note.color }}
     >
-      <div className="title-of-notes-container flex-center">
+      <div className="title-of-notes-container-archive flex-center">
         <p className="title-card">{Note.title}</p>
       </div>
       <div className="description-of-notes-container flex-center">

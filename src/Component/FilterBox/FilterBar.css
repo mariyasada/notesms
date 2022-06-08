@@ -42,36 +42,10 @@ input {
   font-size: small;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 880px) and (-webkit-min-device-pixel-ratio: 2) {
-  .filterbar-conatiner {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    margin-left: 12rem;
-  }
-  .filter-and-clear-filter-container {
-    width: 100%;
-    margin: -10rem 0 0 1rem;
-  }
-  .filter,
   .clear-filters {
-    width: 7rem;
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
-  .filter-items-container {
-    display: flex;
-    flex-direction: row;
-    margin: 3rem -2rem 0 -16rem;
-  }
-  .sortbydate {
-    display: flex;
-    flex-direction: row;
-    width: 10rem;
-    font-size: 1.6rem;
-    margin-top: -6rem;
-  }
-  .filter-priority {
-    display: flex;
-    width: 6rem;
-    margin: -1rem 0 0 -11rem;
+  .filterbar-conatiner {
+    margin-left: 1rem;
   }
 }

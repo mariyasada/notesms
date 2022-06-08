@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaHome, FaBookmark } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import { FaHome } from "react-icons/fa";
 import { BiArchiveIn, BiTrash, BiNote } from "react-icons/bi";
 import { BsPlusCircle } from "react-icons/bs";
 import "./Sidebar.css";
@@ -17,13 +16,13 @@ export const Sidebar = () => {
   const { pathname } = useLocation();
 
   const addTagtoSidebar = () => {
-    console.log(inputTag, "inputvalue");
     setTagList((prevdata) => [...prevdata, inputTag]);
     setInputTag("");
   };
 
   const getActiveLinkStyle = ({ isActive }) => ({
-    color: isActive ? "#d69d66" : "",
+    color: isActive ? "#3d6d79" : "",
+    background: isActive ? "#f3af51" : "",
   });
   return (
     <div
@@ -34,35 +33,33 @@ export const Sidebar = () => {
       }
     >
       <ul>
-        <Link to="/">
-          <li className="sidebar-item-with-icon flex-center">
-            <CgProfile className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Profile</h2>
-          </li>
-        </Link>
-        <Link to="/">
-          <li className="sidebar-item-with-icon flex-center">
-            <FaHome className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Home</h2>
-          </li>
-        </Link>
-        <NavLink to="/notepage" style={getActiveLinkStyle}>
-          <li className="sidebar-item-with-icon flex-center">
-            <BiNote className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Notes</h2>
-          </li>
+        <NavLink to="/" className="sidebar-item-with-icon flex-center">
+          <FaHome className="sidebar-icon" />
+          <h2 className="sidebar-item-title">Home</h2>
         </NavLink>
-        <NavLink to="/archivepage" style={getActiveLinkStyle}>
-          <li className="sidebar-item-with-icon flex-center">
-            <BiArchiveIn className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Archive</h2>
-          </li>
+        <NavLink
+          to="/notepage"
+          style={getActiveLinkStyle}
+          className="sidebar-item-with-icon flex-center"
+        >
+          <BiNote className="sidebar-icon" />
+          <h2 className="sidebar-item-title">Notes</h2>
         </NavLink>
-        <NavLink to="/deletednotepage" style={getActiveLinkStyle}>
-          <li className="sidebar-item-with-icon flex-center">
-            <BiTrash className="sidebar-icon" />
-            <h2 className="sidebar-item-title">Trash</h2>
-          </li>
+        <NavLink
+          to="/archivepage"
+          style={getActiveLinkStyle}
+          className="sidebar-item-with-icon flex-center"
+        >
+          <BiArchiveIn className="sidebar-icon" />
+          <h2 className="sidebar-item-title">Archive</h2>
+        </NavLink>
+        <NavLink
+          to="/deletednotepage"
+          style={getActiveLinkStyle}
+          className="sidebar-item-with-icon flex-center"
+        >
+          <BiTrash className="sidebar-icon" />
+          <h2 className="sidebar-item-title">Trash</h2>
         </NavLink>
         {tagList.map((tag) => {
           return (
