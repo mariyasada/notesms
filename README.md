@@ -19,6 +19,10 @@
 * pinned notes 
 * Filter and Sort Notes
 * [Error Page](https://ms-notes.netlify.app/notepag)
+* authentication
+   * login
+   * signup
+   * logout
 * Dark Mode( Toggle Theme)
 
 React JS -
