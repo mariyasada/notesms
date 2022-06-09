@@ -66,6 +66,7 @@ const AuthProvider=({children})=>{
         const auth=getAuth();
         try{
         signOut(auth).then(()=>{
+            navigate("/");
             toast("successfully SignedOut",{icon:"✔"})
         })
     }

@@ -1,14 +1,14 @@
 .sidebar-item-container {
   flex-basis: 20%;
   flex-direction: column;
-  height: 80vh;
+  height: 84vh;
   position: fixed;
-  top: 1.6rem;
+  top: 1.4rem;
   background-color: white;
   margin-top: 7.8rem;
   color: var(--dark-stone);
   cursor: pointer;
-  overflow-y: scroll;
+  border-right: 2px solid var(--light-stone);
 }
 .sidebar-item-container-dark {
   background-color: #202020;
@@ -19,7 +19,7 @@
   font-size: 2rem;
   font-weight: 300;
   padding: 8px;
-  margin: 9px 0 9px 1.6rem;
+  margin: 9px 0 9px 1.8rem;
   width: 17rem;
   text-align: left;
 }

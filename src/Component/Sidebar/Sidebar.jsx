@@ -22,7 +22,7 @@ export const Sidebar = () => {
 
   const getActiveLinkStyle = ({ isActive }) => ({
     color: isActive ? "#3d6d79" : "",
-    background: isActive ? "#f3af51" : "",
+    background: isActive ? "#dddfe0" : "",
   });
   return (
     <div
@@ -33,10 +33,6 @@ export const Sidebar = () => {
       }
     >
       <ul>
-        <NavLink to="/" className="sidebar-item-with-icon flex-center">
-          <FaHome className="sidebar-icon" />
-          <h2 className="sidebar-item-title">Home</h2>
-        </NavLink>
         <NavLink
           to="/notepage"
           style={getActiveLinkStyle}
@@ -61,6 +57,7 @@ export const Sidebar = () => {
           <BiTrash className="sidebar-icon" />
           <h2 className="sidebar-item-title">Trash</h2>
         </NavLink>
+        {/* will do this functionality in future */}
         {tagList.map((tag) => {
           return (
             <li className="sidebar-item-with-icon flex-center">

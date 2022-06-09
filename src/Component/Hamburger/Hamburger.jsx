@@ -23,9 +23,6 @@ export const Hamburger = () => {
         className="hamburger-menu-container"
         style={{ backgroundColor: theme === "light" ? "#202020" : "white" }}
       >
-        <Link to="/" className="hamburger-menu-item">
-          Home
-        </Link>
         <Link to="/notepage" className="hamburger-menu-item">
           Notes
         </Link>
