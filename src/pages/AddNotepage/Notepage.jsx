@@ -67,7 +67,7 @@ export const NotePage = () => {
               : "text-size-md heading-Pinned flex-center"
           }
         >
-          PINNED
+          {pinnedNotes.length !== 0 && "PINNED"}
         </h2>
         <div className="notelist-container flex-center">
           {pinnedNotes.map((note) => {
